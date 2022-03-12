@@ -153,7 +153,6 @@
 .spire-logo {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
 }
 
 
@@ -229,7 +228,7 @@
     outline-color: #F5A623;
 }
 
-.form-input-label, .form-textarea-label {
+.form-input-label, .form-textarea-label, .form-textarea-textarea {
     font-family: "Satoshi";
     font-weight: 200;
     margin-bottom: 0.4rem;
