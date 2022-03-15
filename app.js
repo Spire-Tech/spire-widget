@@ -23,7 +23,7 @@ window.addEventListener('load', function(event) {
     const buttonImage = document.createElement("img");
     const buttonText = document.createElement("span");
     buttonImage.src = "https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/icon-feedback_pvxbmu.svg";
-    buttonText.textContent = "Leave a Feedback";
+    buttonText.textContent = "Leave Feedback";
     button.classList.add("spire_feedback_button");
 
     button.append(buttonImage, buttonText);
