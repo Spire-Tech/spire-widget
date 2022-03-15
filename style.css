@@ -10,7 +10,7 @@
     url("https://res.cloudinary.com/spire-tech/raw/upload/v1641654155/fonts/satoshi_font/Satoshi-Variable_ncsjrw.woff") format("woff");
 }
 
-.feedback-button {
+.spire_feedback_button {
     align-items: center;
     background-color: #FDF9EE;
     border: 2px solid transparent;
@@ -25,10 +25,11 @@
     padding: 0.8rem 1.4rem;
     position: fixed;
     right: 10px;
+    z-index: 200;
 }
 
 
-.feedback-button:hover {
+.spire_feedback_button:hover {
     border: 2px dotted #73055B;
 }
 
@@ -44,23 +45,24 @@
     width: 100%;
 } */
 
-.container {
+.spire_container {
     background: #fffdf7;
     bottom: 5rem;
-    display: flex;
+    display: none;
     flex-direction: column;
     padding: 1.6rem;
     position: fixed;
     right: 10px;
-    width: 350px;
+    max-width: 350px;
+    z-index: 200;
 }
 
-.close {
+.spire_close {
     align-items: center;
     background: #fffdf7;
     bottom: 25.9rem;
     cursor: pointer;
-    display: flex;
+    display: none;
     flex-direction: column;
     font-family: "Satoshi";
     font-weight: 600;
@@ -70,9 +72,10 @@
     position: fixed;
     right: 10px;
     top: 160px;
+    z-index: 200;
 }
 
-.company-name {
+.spire_company_name {
     color: #500740;
     border-bottom: 0.8px solid #AA9EA6;
     font-family: "Punta";
@@ -82,39 +85,37 @@
     padding-bottom: 1rem;
 }
 
-.feedblocks {
+.spire_feedblocks {
     display: flex;
     flex-direction: column;
 }
 
-.widget {
+.spire_widget {
     align-items: center;
     padding: 1.2rem 0 1rem 0;
 }
 
-.active {
+.spire_active {
     display: block;
 }
 
-.disable {
+.spire_disable {
     display: none;
 }
 
-.back {
+.spire_back {
     align-items: center;
     color: #500740;
     cursor: pointer;
     display: none;
     justify-content: flex-start;
     gap: 8px;
-    margin-bottom: 1.4rem;
+    margin-bottom: 0.3rem;
     margin-left: 2rem;
 }
 
 
-
-
-.feedblock {
+.spire_feedblock {
     align-items: center;
     cursor: pointer;
     display: flex;
@@ -124,17 +125,17 @@
 }
 
 
-.feedblock:hover {
+.spire_feedblock:hover {
     background: rgb(79, 8, 64, 0.1);
     
 }
 
-.feedblock-img img {
+.spire_feedblock-img img {
     height: auto;
     width: 30px;
 }
 
-.feedblock-title, .rating-title {
+.spire_feedblock_title, .spire_rating_title {
     color: #500740;
     font-family: "Punta";
     font-size: 1rem;
@@ -143,43 +144,43 @@
     text-transform: capitalize;
 }
 
-.feedblock-subTitle, .rating-subTitle {
+.spire_feedblock_subTitle, .spire_rating_subTitle {
     color: #433D41;
     font-family: "Satoshi";
-    font-size: 14px;
+    font-size: 0.9rem;
     margin: 0;
 }
 
-.spire-logo {
+.spire_logo {
     display: flex;
     justify-content: center;
 }
 
 
-.spire-logo img {
+.spire_logo img {
     height: auto;
     width: 90px;
 }
 
-.rating-block {
+.spire_rating_block {
     display: none;
     flex-direction: column;
     justify-content: center;
 }
 
-.rating-title {
+.spire_rating_title {
     text-align: center;
     margin: 0;
     margin-bottom: 0.3rem;
 }
 
-.rating-subTitle {
+.spire_rating_subTitle {
     text-align: center;
     padding: 0 1.2rem;
 }
 
 
-.rating-stars, .form-stars {
+.spire_rating_stars, .spire_form_stars {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -189,64 +190,63 @@
 }
 
 
-.form {
+.spire_form {
     display: none;
     margin-top: 1.7rem;
 }
 
-.slug {
+.spire_slug {
     display: none;
 }
 
-.block {
+.spire_block {
     display: none;
 }
 
 
-.form-stars {
+.spire_form_stars {
     margin-bottom: 1.8rem;
 }
 
-.form-input, .form-textarea {
+.spire_form_input, .spire_form_textarea {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
     padding: 0 1rem;
 }
 
-.form-textarea {
+.spire_form_textarea {
     margin: 0;
     padding: 0.5rem 1.2rem;
 }
 
 
-.form-input input[type="email"] {
+.spire_form_input input[type="email"] {
     padding: 0.8rem 0.4rem;
 }
 
-.form-input input[type="email"]:focus, .form-textarea-textarea:focus {
+.spire_form_input input[type="email"]:focus, .spire_form_textarea_textarea:focus {
     outline-color: #F5A623;
 }
 
-.form-input-label, .form-textarea-label, .form-textarea-textarea {
+.spire_form_input-label, .spire_form_textarea_label, .spire_form_textarea-textarea {
     font-family: "Satoshi";
     font-weight: 200;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
 }
 
-.form-button {
+.spire_form_button {
     align-items: center;
     color: #433D41;
     display: flex;
     font-family: "Satoshi";
     justify-content: center;
     margin-bottom: 1.5rem;
-    margin-top: 0.8rem;
     width: 100%;
 }
 
-.form-button-button {
-    background-color: #500740;
+.spire_form_button_button {
+    background-color: #292428;
     border: 1px solid #500740;
     color: #ffffff;
     cursor: pointer;
@@ -256,7 +256,7 @@
     width: 90%;
 }
 
-.form-button-button:disabled {
+.spire_form_button_button:disabled {
     background-color: rgb(80, 7, 64, 0.4);
     border: 1px solid rgb(80, 7, 64, 0.4);
     color: #ffffff;
@@ -267,18 +267,18 @@
     width: 90%;
 }
 
-.submission {
+.spire_submission {
     align-items: center;
     display: none;
     flex-direction: column;
     justify-content: center;
 }
 
-.submission-frame{
+.spire_submission_frame{
     border: none;
-  }
+}
 
-.submission-title {
+.spire_submission_title {
     color: #300226;
     font-family: "Punta";
     font-size: 1.5rem;
@@ -287,7 +287,7 @@
     text-align: center;
 }
 
-.submission-subTitle {
+.spire_submission_subTitle {
     color: #433D41;
     font-family: "Satoshi";
     font-size: 1.1rem;
@@ -296,7 +296,7 @@
     text-align: center;
 }
 
-.submission-button {
+.spire_submission_button {
     background: transparent;
     border: none;
     color: #F5A623;
@@ -305,7 +305,7 @@
     outline: none;
 }
 
-.image-preview {
+.spire_image_preview {
     display: inline-flex;
     max-height: 90px;
     gap: 3px;
@@ -313,33 +313,34 @@
     width: 100%;
 }
 
-.image-preview img {
+.spire_image_preview img {
     height: auto;
     width: 100%;
 }
 
-.image-input {
+.spire_image_input {
     align-items: center;
     border: 1px dashed #62535D;
     cursor: pointer;
     display: flex;
     font-family: "Satoshi";
+    font-size: 0.9rem;
     gap: 10px;
     justify-content: center;
-    margin: 0.4rem 1.2rem 1rem 1.2rem;
+    margin: 0.4rem 1.2rem 0rem 1.2rem;
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.6rem 0;
 }
 
 
 
-.custom-file-input {
+.spire_custom_file_input {
     display: none;
 }
-.custom-file-input::-webkit-file-upload-button {
+.spire_custom_file_input::-webkit-file-upload-button {
     visibility: hidden;
   }
-  .custom-file-input::before {
+  .spire_custom_file_input::before {
     content: 'Take a Screenshot';
     display: none;
     justify-content: center;
@@ -353,14 +354,14 @@
     font-weight: 700;
     font-size: 10pt;
   }
-  .custom-file-input:hover::before {
+  .spire_custom_file_input:hover::before {
     border-color: black;
   }
   
-  .custom-file-input:hover::after {
+  .spire_custom_file_input:hover::after {
     content: "";
   }
   
-  .custom-file-input:active::before {
+  .spire_custom_file_input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
