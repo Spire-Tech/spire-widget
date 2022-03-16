@@ -170,7 +170,7 @@ window.addEventListener('load', function(event) {
     const commentLabel = document.createElement("label");
     const commentLabelSpan = document.createElement("span");
     commentLabel.setAttribute("for", "comment");
-    commentLabelSpan.textContent = "What’s the issue?";
+    commentLabelSpan.textContent = "Leave a comment?";
     const commentLabelSmall = document.createElement("small");
     commentLabel.setAttribute("for", "comment");
     commentLabel.classList.add("form-textarea-label");
