@@ -10,6 +10,10 @@
     url("https://res.cloudinary.com/spire-tech/raw/upload/v1641654155/fonts/satoshi_font/Satoshi-Variable_ncsjrw.woff") format("woff");
 }
 
+body {
+    font-family: "Satoshi, Punta";
+}
+
 .spire_feedback_button {
     align-items: center;
     background-color: #FDF9EE;
@@ -51,11 +55,16 @@
     display: none;
     flex-direction: column;
     font-family: "Satoshi";
-    padding: 1.6rem;
+    padding: 0.2rem 1.6rem 1.6rem 1.6rem;
     position: fixed;
     right: 10px;
     min-width: 320px;
     z-index: 200;
+}
+
+
+.spire_container > div p button input label textarea {
+    font-family: "Satoshi, Punta";
 }
 
 .spire_close {
@@ -82,8 +91,9 @@
     font-family: "Punta";
     font-size: 1.4rem;
     text-align: center;
-    margin: 0 0.5rem 0.5    rem 0.5rem;
-    padding-bottom: 1rem;
+    margin: 0 0.5rem 0.5rem 0.2rem;
+    padding-bottom: 0.6rem;
+    padding-top: 0.3rem;
 }
 
 .spire_feedblocks {
@@ -112,7 +122,7 @@
     display: none;
     justify-content: flex-start;
     gap: 8px;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0rem;
     margin-left: 2rem;
 }
 
@@ -190,8 +200,8 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 3rem;
-    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1.2rem;
 }
 
 
@@ -231,6 +241,10 @@
     padding: 0.8rem 0.4rem;
 }
 
+.spire_form_input input[type="email"], .spire_form_textarea_textarea {
+    border: 1px solid #252525;
+}
+
 .spire_form_input input[type="email"]:focus, .spire_form_textarea_textarea:focus {
     outline-color: #F5A623;
 }
@@ -247,7 +261,7 @@
     display: flex;
     font-family: "Satoshi";
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     width: 100%;
 }
 
@@ -280,7 +294,7 @@
     justify-content: center;
 }
 
-.spire_submission_frame{
+.spire_submission_frame {
     border: none;
 }
 
@@ -307,7 +321,7 @@
     border: none;
     color: #F5A623;
     cursor: pointer;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     outline: none;
 }
 
