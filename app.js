@@ -178,11 +178,11 @@ window.addEventListener('load', function(event) {
     commentLabel.append(commentLabelSpan, commentLabelSmall);
 
     const commentField = document.createElement("textarea");
-    commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
+    commentField.placeholder = "Let us know how we can improve.";
     commentField.setAttribute("required", true);
     commentField.setAttribute("id", "comment");
     commentField.setAttribute("cols", "20");
-    commentField.setAttribute("rows", "10");
+    commentField.setAttribute("rows", "5");
     commentField.name = "comment";
     commentField.classList.add("form-textarea-textarea")
 
