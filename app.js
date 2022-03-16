@@ -170,7 +170,7 @@ window.addEventListener('load', function(event) {
     const commentLabel = document.createElement("label");
     const commentLabelSpan = document.createElement("span");
     commentLabel.setAttribute("for", "comment");
-    commentLabelSpan.textContent = "What’s the issue?";
+    commentLabelSpan.textContent = "Leave a Comment";
     const commentLabelSmall = document.createElement("small");
     commentLabel.setAttribute("for", "comment");
     commentLabel.classList.add("spire_form_textarea_label");
@@ -178,7 +178,6 @@ window.addEventListener('load', function(event) {
     commentLabel.append(commentLabelSpan, commentLabelSmall);
 
     const commentField = document.createElement("textarea");
-    commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
     commentField.setAttribute("required", true);
     commentField.setAttribute("id", "comment");
     commentField.setAttribute("cols", "20");
@@ -380,17 +379,19 @@ window.addEventListener('load', function(event) {
                 feedblockSubTitle.textContent = event.path[2].querySelector(".spire_feedblock_subTitle").textContent;
                 screenshotContainer.style.display = "none";
                 ratingContainer.style.display = "flex";
+                commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
                 
             } else if (event.path[2].querySelector(".spire_slug").textContent === "issue-reports") {
                 feedblockTitle.style.display = "block";
                 feedblockSubTitle.style.display = "block";
                 feedblockTitle.textContent = event.path[2].querySelector(".spire_feedblock_title").textContent;
-                feedblockSubTitle.textContent = event.path[2].querySelector(".spire_feedblock_subTitle").textContent
+                feedblockSubTitle.textContent = event.path[2].querySelector(".spire_feedblock_subTitle").textContent;
                 form.style.display = "block";
                 back.style.display = "flex";
                 feedblocks.style.display = "none";
                 ratingContainer.style.display = "none";
                 screenshotContainer.style.display = "flex";
+                
             } else {
                 feedblockTitle.style.display = "block";
                 feedblockSubTitle.style.display = "block";
@@ -401,6 +402,7 @@ window.addEventListener('load', function(event) {
                 feedblocks.style.display = "none";
                 screenshotContainer.style.display = "none";
                 ratingContainer.style.display = "none";
+                commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
             }
           });
 

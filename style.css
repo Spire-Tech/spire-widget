@@ -50,10 +50,11 @@
     bottom: 5rem;
     display: none;
     flex-direction: column;
+    font-family: "Satoshi";
     padding: 1.6rem;
     position: fixed;
     right: 10px;
-    max-width: 350px;
+    min-width: 320px;
     z-index: 200;
 }
 
@@ -81,7 +82,7 @@
     font-family: "Punta";
     font-size: 1.4rem;
     text-align: center;
-    margin: 0 0.5rem 1rem 0.5rem;
+    margin: 0 0.5rem 0.5    rem 0.5rem;
     padding-bottom: 1rem;
 }
 
@@ -91,6 +92,7 @@
 }
 
 .spire_widget {
+    font-family: "Satoshi";
     align-items: center;
     padding: 1.2rem 0 1rem 0;
 }
@@ -119,6 +121,7 @@
     align-items: center;
     cursor: pointer;
     display: flex;
+    font-family: "Satoshi";
     gap: 1.1rem;
     padding: 1rem;
     z-index: 2;
@@ -169,12 +172,14 @@
 }
 
 .spire_rating_title {
+    font-family: "Punta";
     text-align: center;
     margin: 0;
     margin-bottom: 0.3rem;
 }
 
 .spire_rating_subTitle {
+    font-family: "Punta";
     text-align: center;
     padding: 0 1.2rem;
 }
@@ -192,6 +197,7 @@
 
 .spire_form {
     display: none;
+    font-family: "Satoshi";
     margin-top: 1.7rem;
 }
 
@@ -246,7 +252,7 @@
 }
 
 .spire_form_button_button {
-    background-color: #292428;
+    background-color: #300226;;
     border: 1px solid #500740;
     color: #ffffff;
     cursor: pointer;
