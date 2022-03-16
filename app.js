@@ -44,7 +44,7 @@ window.addEventListener('load', function(event) {
     const backIcon = document.createElement("img");
     backIcon.src = "https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/arrow_uhkexa.svg";
     back.appendChild(backIcon);
-    const feedblockTitle = document.createElement("h4");
+    const feedblockTitle = document.createElement("h5");
     feedblockTitle.classList.add("spire_rating_title");
     const feedblockSubTitle = document.createElement("p");
     feedblockSubTitle.classList.add("spire_rating_subTitle");
@@ -327,7 +327,7 @@ window.addEventListener('load', function(event) {
                         ${image}
                     </div>
                     <div>
-                        <h4 class="spire_feedblock_title">${block.title}</h4>
+                        <h5 class="spire_feedblock_title">${block.title}</h5>
                         <p class="spire_feedblock_subTitle">${block.subTitle}</p>
                         <span class="spire_slug" style={display: "none"}>${block.slug}</span>
                         <span class="spire_block" style={display: "none"}>${block.id}</span>
