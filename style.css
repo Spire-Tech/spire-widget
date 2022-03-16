@@ -225,7 +225,7 @@
 }
 
 .form-input input[type="email"]:focus, .form-textarea-textarea:focus {
-    outline-color: #F5A623;
+    outline-color: #500740;
 }
 
 .form-input-label, .form-textarea-label, .form-textarea-textarea {
@@ -236,7 +236,7 @@
 
 .form-button {
     align-items: center;
-    color: #433D41;
+    color: #500740;
     display: flex;
     font-family: "Satoshi";
     justify-content: center;
@@ -299,7 +299,7 @@
 .submission-button {
     background: transparent;
     border: none;
-    color: #F5A623;
+    color: #500740;
     cursor: pointer;
     margin: 1rem 0;
     outline: none;
@@ -310,7 +310,7 @@
     max-height: 90px;
     gap: 3px;
     margin: 0.7rem 0;
-    width: 100%;
+    width: 80px;
 }
 
 .image-preview img {
