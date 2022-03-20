@@ -3,6 +3,7 @@ window.addEventListener('load', function(event) {
     const localURL = "http://localhost:4000";
     const spire = document.querySelector("#spireWidget");
     const accessToken = spire.getAttribute("widget");
+    window.history.forward(1);
 
 
     let rating = 0;
@@ -574,6 +575,6 @@ window.addEventListener('load', function(event) {
             }
             console.log(media);
         });
-
+    
     body.append(overlay, button);
 });

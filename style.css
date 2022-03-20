@@ -60,6 +60,7 @@ body {
     right: 10px;
     min-width: 320px;
     z-index: 200;
+   
 }
 
 
@@ -85,7 +86,7 @@ body {
     padding: 3px 10px;
     position: absolute;
     right: 10px;
-    top: 160px;
+    top: 180px;
     z-index: 200;
 }
 
@@ -415,3 +416,4 @@ body {
   .spire_custom_file_input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
+
