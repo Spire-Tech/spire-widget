@@ -44,7 +44,7 @@ window.addEventListener('load', function(event) {
     const backIcon = document.createElement("img");
     backIcon.src = "https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/arrow_uhkexa.svg ";
     back.appendChild(backIcon);
-    const feedblockTitle40vh= document.createElement("h5");
+    const feedblockTitle= document.createElement("h5");
     feedblockTitle.classList.add("spire_rating_title");
     const feedblockSubTitle = document.createElement("p");
     feedblockSubTitle.classList.add("spire_rating_subTitle");
