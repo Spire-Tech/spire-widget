@@ -81,6 +81,7 @@ body {
     font-weight: 600;
     height: 1.5rem;
     justify-content: center;
+    align-content: center;
     padding: 3px 10px;
     position: absolute;
     right: 10px;
@@ -126,9 +127,10 @@ body {
     display: none;
     justify-content: flex-start;;
     padding-top: 2%;
-    gap: 8px;
-    margin-bottom: 0rem;
-    margin-left: 2rem;
+   
+    margin-bottom: 1rem;
+  
+    justify-content: center;
 }
 
 
@@ -173,6 +175,12 @@ body {
 .spire_logo {
     display: flex;
     justify-content: center;
+}
+
+.feedjet_heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 
@@ -241,7 +249,7 @@ body {
 
 .spire_form_textarea {
     margin: 0;
-    font-family: "Satoshi";
+    font-family: "Satoshi"; 
    resize: none !important;
     padding: 0.5rem 1.2rem;
 }
@@ -260,6 +268,7 @@ body {
     height: 20vh;
     padding-top:10px;
     padding-left:10px;
+    padding-right: 10px;
     font-family: "Satoshi";
 }
 
@@ -286,7 +295,7 @@ body {
 }
 
 .spire_form_button_button {
-    background-color: #300226;;
+    /* background-color: #300226;; */
     border: 1px solid #500740;
     color: #ffffff;
     cursor: pointer;
@@ -294,6 +303,7 @@ body {
     font-weight: 550;
     padding: 00.8rem 0;
     width: 90%;
+    background-color: #300226 !important;;
 }
 
 .spire_form_button_button:disabled {
