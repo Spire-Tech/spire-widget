@@ -26,9 +26,9 @@ body {
     font-size: 1rem;
     font-weight: 400;
     gap: 0.7rem;
-    padding: 0.8rem 1.4rem;
+    padding: 0.5rem 1.4rem;
     position: fixed;
-    right: -70px;
+    right: -75px;
     transform: rotate(90deg);
     z-index: 200;
 }
