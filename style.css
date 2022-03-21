@@ -18,9 +18,9 @@ body {
     align-items: center;
     background-color: #FDF9EE;
     border: 2px solid transparent;
-    bottom: 15px;
     color: #433D41;
     cursor: pointer;
+    bottom: 50%;
     display: flex;
     font-family: "Satoshi";
     font-size: 1rem;
@@ -28,7 +28,8 @@ body {
     gap: 0.7rem;
     padding: 0.8rem 1.4rem;
     position: fixed;
-    right: 10px;
+    right: -70px;
+    transform: rotate(90deg);
     z-index: 200;
 }
 
@@ -57,7 +58,7 @@ body {
     font-family: "Satoshi";
     padding: 0.2rem 1.6rem 1.6rem 1.6rem;
     position: fixed;
-    right: 10px;
+    right: 55px;
     min-width: 320px;
     z-index: 200;
 }
