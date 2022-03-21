@@ -318,7 +318,7 @@ window.addEventListener('load', function(event) {
                   image = "<img src='https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/icon-emotion_gv8rbp.svg' />"
               } else if(block.slug === "issue-reports") {
                 image = "<img src='https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/icon-warning_znpv77.svg' />"
-              } else {
+              } else if(block.slug === "feature-requests") {
                 image = "<img src='https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/icon-idea_ayvihm.svg' />"
               }
               console.log(block);
@@ -385,7 +385,7 @@ window.addEventListener('load', function(event) {
                 feedblockSubTitle.textContent = event.path[2].querySelector(".spire_feedblock_subTitle").textContent;
                 screenshotContainer.style.display = "none";
                 ratingContainer.style.display = "flex";
-                commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
+                commentField.placeholder = "Let us know how we can improve.";
                 
             } else if (event.path[2].querySelector(".spire_slug").textContent === "issue-reports") {
                 feedblockTitle.style.display = "block";
@@ -397,8 +397,9 @@ window.addEventListener('load', function(event) {
                 feedblocks.style.display = "none";
                 ratingContainer.style.display = "none";
                 screenshotContainer.style.display = "flex";
+                commentField.placeholder = "Tell us more about the issue you’re having. You can take a screenshot."
                 
-            } else {
+            } else if (event.path[2].querySelector(".spire_slug").textContent === "feature-requests") {
                 feedblockTitle.style.display = "block";
                 feedblockSubTitle.style.display = "block";
                 feedblockTitle.textContent = event.path[2].querySelector(".spire_feedblock_title").textContent;
@@ -410,6 +411,7 @@ window.addEventListener('load', function(event) {
                 ratingContainer.style.display = "none";
                 commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
             }
+            e;
           });
 
           const submissionContainer = document.createElement("div");
