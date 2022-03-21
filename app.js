@@ -411,7 +411,7 @@ window.addEventListener('load', function(event) {
                 ratingContainer.style.display = "none";
                 commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
             }
-            e;
+            
           });
 
           const submissionContainer = document.createElement("div");
