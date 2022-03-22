@@ -3,6 +3,7 @@ window.addEventListener('load', function(event) {
     const localURL = "http://localhost:4000";
     const spire = document.querySelector("#spireWidget");
     const accessToken = spire.getAttribute("widget");
+    window.history.forward(1);
 
 
     let rating = 0;
@@ -42,9 +43,9 @@ window.addEventListener('load', function(event) {
     const back = document.createElement("div");
     back.classList.add("spire_back");
     const backIcon = document.createElement("img");
-    backIcon.src = "https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/arrow_uhkexa.svg";
+    backIcon.src = "https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/arrow_uhkexa.svg ";
     back.appendChild(backIcon);
-    const feedblockTitle = document.createElement("h5");
+    const feedblockTitle= document.createElement("h5");
     feedblockTitle.classList.add("spire_rating_title");
     const feedblockSubTitle = document.createElement("p");
     feedblockSubTitle.classList.add("spire_rating_subTitle");
@@ -317,18 +318,23 @@ window.addEventListener('load', function(event) {
                   image = "<img src='https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/icon-emotion_gv8rbp.svg' />"
               } else if(block.slug === "issue-reports") {
                 image = "<img src='https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/icon-warning_znpv77.svg' />"
-              } else {
+              } else if(block.slug === "feature-requests") {
                 image = "<img src='https://res.cloudinary.com/spire-tech/image/upload/v1646986830/icons/icon-idea_ayvihm.svg' />"
               }
               console.log(block);
             feedblocks.innerHTML += `
                 <div class="spire_feedblock">
+                
+
                     <div class="spire_feedblock_img">
                         ${image}
                     </div>
                     <div>
                         <h5 class="spire_feedblock_title">${block.title}</h5>
                         <p class="spire_feedblock_subTitle">${block.subTitle}</p>
+
+
+
                         <span class="spire_slug" style={display: "none"}>${block.slug}</span>
                         <span class="spire_block" style={display: "none"}>${block.id}</span>
                     </div>
@@ -379,7 +385,7 @@ window.addEventListener('load', function(event) {
                 feedblockSubTitle.textContent = event.path[2].querySelector(".spire_feedblock_subTitle").textContent;
                 screenshotContainer.style.display = "none";
                 ratingContainer.style.display = "flex";
-                commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
+                commentField.placeholder = "Let us know how we can improve.";
                 
             } else if (event.path[2].querySelector(".spire_slug").textContent === "issue-reports") {
                 feedblockTitle.style.display = "block";
@@ -391,8 +397,9 @@ window.addEventListener('load', function(event) {
                 feedblocks.style.display = "none";
                 ratingContainer.style.display = "none";
                 screenshotContainer.style.display = "flex";
+                commentField.placeholder = "Tell us more about the issue you’re having. You can take a screenshot."
                 
-            } else {
+            } else if (event.path[2].querySelector(".spire_slug").textContent === "feature-requests") {
                 feedblockTitle.style.display = "block";
                 feedblockSubTitle.style.display = "block";
                 feedblockTitle.textContent = event.path[2].querySelector(".spire_feedblock_title").textContent;
@@ -404,6 +411,7 @@ window.addEventListener('load', function(event) {
                 ratingContainer.style.display = "none";
                 commentField.placeholder = "What are you looking to see and what’s the problem it solves.";
             }
+            
           });
 
           const submissionContainer = document.createElement("div");
@@ -569,6 +577,6 @@ window.addEventListener('load', function(event) {
             }
             console.log(media);
         });
-
+    
     body.append(overlay, button);
 });

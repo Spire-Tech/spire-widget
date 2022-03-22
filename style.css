@@ -68,21 +68,25 @@ body {
     font-family: "Satoshi, Punta";
 }
 
+
+
 .spire_close {
     align-items: center;
     background: #fffdf7;
     bottom: 25.9rem;
     cursor: pointer;
     display: none;
+    margin-top:100px; 
     flex-direction: column;
     font-family: "Satoshi";
     font-weight: 600;
     height: 1.5rem;
     justify-content: center;
+    align-content: center;
     padding: 3px 10px;
-    position: fixed;
+    position: absolute;
     right: 10px;
-    top: 160px;
+    top: 180px;
     z-index: 200;
 }
 
@@ -93,8 +97,9 @@ body {
     font-size: 1.4rem;
     text-align: center;
     margin: 0 0.5rem 0.5rem 0.2rem;
-    padding-bottom: 0.6rem;
-    padding-top: 0.3rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
 }
 
 .spire_feedblocks {
@@ -121,11 +126,14 @@ body {
     color: #500740;
     cursor: pointer;
     display: none;
-    justify-content: flex-start;
-    gap: 8px;
-    margin-bottom: 0rem;
-    margin-left: 2rem;
+    justify-content: flex-start;;
+    padding-top: 2%;
+   
+    margin-bottom: 1rem;
+  
+    justify-content: center;
 }
+
 
 
 .spire_feedblock {
@@ -168,6 +176,12 @@ body {
 .spire_logo {
     display: flex;
     justify-content: center;
+}
+
+.feedjet_heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 
@@ -230,10 +244,14 @@ body {
     flex-direction: column;
     margin-bottom: 1rem;
     padding: 0 1rem;
+    resize: none !important;
+
 }
 
 .spire_form_textarea {
     margin: 0;
+    font-family: "Satoshi"; 
+   resize: none !important;
     padding: 0.5rem 1.2rem;
 }
 
@@ -244,16 +262,27 @@ body {
 
 .spire_form_input input[type="email"], .spire_form_textarea_textarea {
     border: 1px solid #252525;
+     resize: none !important;
+     
 }
+.spire_form_textarea_textarea {
+    height: 20vh;
+    padding-top:10px;
+    padding-left:10px;
+    padding-right: 10px;
+    font-family: "Satoshi";
+}
+
 
 .spire_form_input input[type="email"]:focus, .spire_form_textarea_textarea:focus {
     outline-color: #F5A623;
+    resize: none !important;
 }
 
 .spire_form_input-label, .spire_form_textarea_label, .spire_form_textarea-textarea {
     font-family: "Satoshi";
     font-weight: 200;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .spire_form_button {
@@ -267,7 +296,7 @@ body {
 }
 
 .spire_form_button_button {
-    background-color: #300226;;
+    /* background-color: #300226;; */
     border: 1px solid #500740;
     color: #ffffff;
     cursor: pointer;
@@ -275,6 +304,7 @@ body {
     font-weight: 550;
     padding: 00.8rem 0;
     width: 90%;
+    background-color: #300226 !important;;
 }
 
 .spire_form_button_button:disabled {
@@ -386,3 +416,4 @@ body {
   .spire_custom_file_input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
+
