@@ -1,0 +1,204 @@
+@font-face {
+  font-family: 'Punta';
+  src:  url('https://res.cloudinary.com/spire-tech/raw/upload/v1641654538/fonts/punta_font/Punta_-_Light_djfcdz.otf.woff2') format('woff2'),
+  url("https://res.cloudinary.com/spire-tech/raw/upload/v1646790142/fonts/satoshi_font/punta_regular-webfont_jbqtfz.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src:  url('https://res.cloudinary.com/spire-tech/raw/upload/v1641654156/fonts/satoshi_font/Satoshi-Variable_t1ou5n.woff2') format('woff2'),
+  url("https://res.cloudinary.com/spire-tech/raw/upload/v1641654155/fonts/satoshi_font/Satoshi-Variable_ncsjrw.woff") format("woff");
+}
+
+/* :root {
+  --primary-font: 'Punta', sans-serif;
+  --secondary-font: 'Satoshi', sans-serif;
+  --brand-yellow: #FDF9EE;
+  --brand-pink: #300226;
+  --brand-text-dark: #433D41;
+} */
+
+._spire--feedjet--text {
+  font-family: 'Satoshi', sans-serif;
+}
+
+._spire--feedjet--heading {
+  font-family: 'Punta', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+._spire--feedjet {
+ position: fixed;
+ bottom: 8px;
+ right: 8px;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+ align-items: flex-end;
+ row-gap: 16px;
+}
+
+._spire--feedjet_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.46);  
+}
+
+._spire--feedjet_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  width: 189px;
+  height: 48px;
+  background-color: #FDF9EE;
+  color: #433D41;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+._spire--feedjet_btn:focus, ._spire--feedjet_btn:active {
+  outline: 1px solid #300226;
+}
+
+._spire--feedjet_btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+._spire--feedjet_box {
+  position: relative;
+  width: 351px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  z-index: 1100;
+  padding: 24px 0;
+}
+
+._spire--feedjet_box_btn {
+  border: none;
+  position: absolute;
+  top: 0;
+  left: -24px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+._spire--feedjet_box_btn:active, ._spire--feedjet_box_btn:focus {
+  outline: 1px solid #433D41;
+}
+
+._spire--feedjet_box_btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+._spire--feedjet_box_img {
+  width: 100%;
+  padding-bottom: 16px;
+  margin: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.83px solid #aa9ea63d;
+}
+
+._spire--feedjet_box_img img {
+  width: 127px;
+  height: 24px;
+}
+
+._spire--feedjet_box_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 35px;
+  width: 100%;
+  padding: 32px 16px;
+}
+
+._spire--feedjet_box_list_item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 24px;
+}
+
+._spire--feedjet_box_list_item_icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+._spire--feedjet_box_list_item_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 4px;
+}
+
+._spire--feedjet_box_list_item_content_lg {
+  font-family: 'Punta', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 19px;
+  color: #300226;  
+}
+
+._spire--feedjet_box_list_item_content_sm {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #433D41;;    
+}
+
+._spire--feedjet_box_spire {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 8px;  
+}
+
+._spire--feedjet_box_spire svg {
+  width: 28px;
+  height: 8px;
+}
+
+._spire--feedjet_box_spire_text {
+  font-weight: 400;
+  font-size: 9.96961px;
+  line-height: 15px;
+  color: #433D41;  
+}
+
+._spire--feedjet_box_spire_text a {
+  color: #300226;
+  text-decoration: underline;
+  text-decoration-color: #300226;
+}

@@ -1,0 +1,38 @@
+{
+  "name": "spire-widget",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spire-Tech/spire-widget.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spire-Tech/spire-widget/issues"
+  },
+  "homepage": "https://github.com/Spire-Tech/spire-widget#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.7",
+    "html-webpack-plugin": "^5.5.0",
+    "image-webpack-loader": "^8.1.0",
+    "postcss": "^8.4.13",
+    "postcss-loader": "^6.2.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "svg-inline-loader": "^0.8.2"
+  }
+}
