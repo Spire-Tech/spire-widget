@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Punta';
-  src:  url('./assets/fonts/Punta-light.otf') format('woff2'),
-  url("./assets/fonts/punta-regular.woff") format("woff");
+  src:  url('/src/assets/fonts/punta-regular.woff') format('woff2'),
+  url("/src/assets/fonts/Punta-light.otf") format("woff");
 }
 
 @font-face {
@@ -10,20 +10,21 @@
   url("https://res.cloudinary.com/spire-tech/raw/upload/v1641654155/fonts/satoshi_font/Satoshi-Variable_ncsjrw.woff") format("woff");
 }
 
-/* :root {
+* {
   --primary-font: 'Punta', sans-serif;
   --secondary-font: 'Satoshi', sans-serif;
   --brand-yellow: #FDF9EE;
   --brand-pink: #300226;
   --brand-text-dark: #433D41;
-} */
+  --brand-red: #E21A36;
+}
 
 ._spire--feedjet--text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Punta', sans-serif;
 }
 
 ._spire--feedjet--heading {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Punta', sans-serif;
 }
 
 * {
@@ -200,3 +201,176 @@
   text-decoration: underline;
   text-decoration-color: #300226;
 }
+
+._spire--feedjet_box_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+._spire--feedjet_box_container_header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 10px;
+}
+
+._spire--feedjet_title {
+  font-family: 'Punta';  
+  font-weight: 400;
+  font-size: 19.1561px;
+  line-height: 20px;
+  text-align: center;  
+  color: var(--brand-pink);
+}
+
+._spire--feedjet_desc {
+  font-family: 'Satoshi';  
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--brand-text-dark);
+}
+
+._spire--feedjet_form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  width: 100%;
+}
+
+._spire--feedjet_form-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 8px;
+}
+
+._spire--feedjet_label {
+  font-size: var(--brand-text-dark); 
+  font-weight: 400;
+  font-size: 13.9317px;
+  line-height: 21px;   
+}
+
+._spire--feedjet_label span {
+  font-size: 10.4488px;
+  line-height: 16px;
+  color: var(--brand-red);  
+}
+
+._spire--feedjet_input, ._spire--feedjet_textarea {
+  width: 100%;
+  height: 48px;
+  border: 0.869986px solid #62535D;
+  background: #fff;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: 13.9198px;
+  line-height: 21px;
+  color: #7A7279;  
+  outline: none;
+  padding: 15px 14px;
+}
+
+._spire--feedjet_input:focus, 
+._spire--feedjet_input:active {
+  outline: 0.869986px solid #F5A623;
+  border: none;
+}
+
+._spire--feedjet_textarea {
+
+  height: 100px;
+}
+
+._spire--feedjet_textarea:focus, 
+._spire--feedjet_texarea:active {
+  outline: 0.869986px solid #F5A623;
+  border: none;
+}
+
+._spire--feedjet_submit-btn {
+  width: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F5A623;
+  padding: 14px 16px;
+  height: 48px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--brand-text-dark);      
+}
+
+._spire--feedjet_back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3px;
+  border: none;
+  background: transparent;
+  font-size: 13.9317px;
+  line-height: 21px;
+  color: #500740;    
+}
+
+._spire--feedjet_back-btn svg {
+  width: 21px;
+  height: 21px;
+}
+
+._spire--feedjet_screenshot-btn {
+  width: 100%;
+  height: 48px;
+  border: 0.870732px dashed #62535D;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+
+._spire--feedjet_screenshot-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+._spire--feedjet_ratings {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 14px;
+  margin: 1em 0;
+}
+
+._spire--feedjet_ratings_btn {
+  border: none;
+  background: none;
+  width: 40px;
+  height: 40px;
+}
+
+._spire--feedjet_ratings_btn svg {
+  width: 40px;
+  height: 40px;
+  stroke-width: 2px;
+}
+
+._spire--feedjet_ratings_btn.active svg {
+  fill: #F5A623;
+  stroke-width: 0;
+}
+
+

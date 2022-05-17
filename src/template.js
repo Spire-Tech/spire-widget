@@ -4,6 +4,10 @@ import closeicon from './assets/icons/close-icon.svg'
 import brandimg from './assets/images/flutterwave-logo.png'
 import spireicon from './assets/icons/spire-icon.svg'
 import { home } from './views/home'
+import { featureRequest } from './views/feature-request'
+import { reportIssue } from './views/report-issue'
+import { rateExperience } from './views/rate-experience'
+import { submitBanner } from './views/submit-banner'
 
 export function createTemplate () {
   const template = document.createElement('template')
@@ -18,7 +22,7 @@ export function createTemplate () {
       <div class="_spire--feedjet_box_img">
         <img src=${brandimg} alt="" />
       </div>
-      ${home()}
+      ${submitBanner()}
       <div class="_spire--feedjet_box_spire">
           ${spireicon}
           <div class="_spire--feedjet_box_spire_text">Powered by <a href="getspire.io">Spire</a> </div>
