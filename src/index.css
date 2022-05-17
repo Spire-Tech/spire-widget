@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Punta';
-  src:  url('https://res.cloudinary.com/spire-tech/raw/upload/v1641654538/fonts/punta_font/Punta_-_Light_djfcdz.otf.woff2') format('woff2'),
-  url("https://res.cloudinary.com/spire-tech/raw/upload/v1646790142/fonts/satoshi_font/punta_regular-webfont_jbqtfz.woff") format("woff");
+  src:  url('./assets/fonts/Punta-light.otf') format('woff2'),
+  url("./assets/fonts/punta-regular.woff") format("woff");
 }
 
 @font-face {
@@ -19,11 +19,11 @@
 } */
 
 ._spire--feedjet--text {
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 ._spire--feedjet--heading {
-  font-family: 'Punta', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 * {
@@ -136,7 +136,7 @@
   align-items: flex-start;
   row-gap: 35px;
   width: 100%;
-  padding: 32px 16px;
+  padding: 32px 24px;
 }
 
 ._spire--feedjet_box_list_item {
@@ -161,7 +161,6 @@
 }
 
 ._spire--feedjet_box_list_item_content_lg {
-  font-family: 'Punta', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 19px;
@@ -169,7 +168,6 @@
 }
 
 ._spire--feedjet_box_list_item_content_sm {
-  font-family: 'Satoshi', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
