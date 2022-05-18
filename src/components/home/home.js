@@ -5,9 +5,9 @@ import CloseIcon from '../../assets/icons/close-icon'
 import styles from './home.css'
 import ListWrapper from '../listWrapper/listWrapper'
 import { useNavigation } from '../../context/NavigationContext'
-import RateExperience from '../rateExperience/rateExperience'
-import ReportIssue from '../reportIssue/reportIssue'
-import FeatureRequest from '../featureRequest/featureRequest'
+import RateExperience from '../views/rateExperience'
+import ReportIssue from '../views/reportIssue'
+import FeatureRequest from '../views/featureRequest'
 
 const Home = ({ toggleFeedJet }) => {
   const { activeView } = useNavigation()
@@ -33,7 +33,6 @@ const Home = ({ toggleFeedJet }) => {
       <button onClick={toggleFeedJet} class={styles.__box_btn}>
         <CloseIcon />
       </button>
-      {activeView}
       <div class={styles.__box_img}>
         <img src={brandimg} alt="" />
       </div>

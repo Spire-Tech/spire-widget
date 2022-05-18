@@ -1,0 +1,48 @@
+import { h } from "preact"
+import FormButton from "../formInput/FormButton"
+import FormInput from "../formInput/FormInput"
+import FormTextArea from "../formInput/FormTextarea"
+import styles from './styles.css'
+import StarIcon from '../../assets/icons/star-icon'
+import BackIcon from '../../assets/icons/back-icon'
+import { useNavigation } from "../../context/NavigationContext"
+
+const RateExperience = () => {
+  const { updateActiveView } = useNavigation()
+
+  return (
+    <div class={styles.__container}>
+      <button onClick={() => updateActiveView('home')} class={styles.__backbtn}>
+        <BackIcon />
+        <span>Back</span>
+      </button>
+      <div class={styles.__container_header}>
+        <h3 class={styles.__title}>Report an issue</h3>
+        <p class={styles.__desc}>Is something wrong? Let us know.</p>
+      </div>
+
+      <div class={styles.__ratings}>
+        <button class={`${styles.__ratings_btn} active`}>
+          <StarIcon />
+        </button>
+        <button class={`${styles.__ratings_btn} active`}>
+          <StarIcon />
+        </button>
+        <button class={`${styles.__ratings_btn} active`}>
+          <StarIcon />
+        </button>
+        <button class={`${styles.__ratings_btn}`}>
+          <StarIcon />
+        </button>
+      </div>
+
+      <form class={styles.__form}>
+        <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" />
+        <FormTextArea label="Leave us a comment" placeholder="Let us know how we can improve" />
+        <FormButton type="submit">Submit</FormButton>
+      </form>
+    </div>
+  )
+}
+
+export default RateExperience

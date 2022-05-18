@@ -34,7 +34,8 @@ module.exports = {
               },
               sourceMap: !isProduction
             }
-          }
+          },
+          'postcss-loader'
         ]
       },
       {
