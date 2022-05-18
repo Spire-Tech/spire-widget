@@ -12,6 +12,9 @@ import { submitBanner } from './views/submit-banner'
 export function createTemplate () {
   const template = document.createElement('template')
   template.innerHTML = `
+  <style>
+  ${styles.toString()}
+  </style>
   <div class="_spire--feedjet">
   <div class="_spire--feedjet_overlay">
     </div>

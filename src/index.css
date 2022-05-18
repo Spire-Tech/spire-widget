@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Punta';
-  src:  url('/src/assets/fonts/punta-regular.woff') format('woff2'),
-  url("/src/assets/fonts/Punta-light.otf") format("woff");
+  src:  url('https://res.cloudinary.com/spire-tech/raw/upload/v1641654538/fonts/punta_font/Punta_-_Light_djfcdz.otf') format('woff2'),
+  url("https://res.cloudinary.com/spire-tech/raw/upload/v1646790142/fonts/satoshi_font/punta_regular-webfont_jbqtfz.woff") format("woff");
 }
 
 @font-face {
@@ -24,7 +24,7 @@
 }
 
 ._spire--feedjet--heading {
-  font-family: 'Punta', sans-serif;
+  font-family: 'Satoshi', sans-serif;
 }
 
 * {
