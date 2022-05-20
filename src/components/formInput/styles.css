@@ -14,8 +14,11 @@
 
 .__label span {
   font-size: 10.4488px;
-  line-height: 16px;
-  color: var(--brand-red);  
+  line-height: 16px;  
+}
+
+.__label span span {
+  color: red; 
 }
 
 .__input, .__textarea {
@@ -34,19 +37,27 @@
 
 .__input:focus, 
 .__input:active {
-  outline: 0.869986px solid #F5A623;
-  border: none;
+  border: 0.869986px solid #F5A623;
+  outline: none;
 }
 
 .__textarea {
-
   height: 100px;
 }
 
 .__textarea:focus, 
 .__texarea:active {
-  outline: 0.869986px solid #F5A623;
-  border: none;
+  border: 0.869986px solid #F5A623;
+  outline: none;
+}
+
+.__input.__error, .__textarea.__error {
+  border: 0.869986px solid red;
+}
+
+.__error {
+  font-size: 14px;
+  color: red;
 }
 
 .__submitbtn {

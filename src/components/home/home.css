@@ -2,6 +2,10 @@
   position: relative;
   width: 351px;
   height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,6 +13,19 @@
   background: #fff;
   z-index: 1100;
   padding: 24px 0;
+}
+
+.__box::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+.__box::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 10px;
+}
+
+.__box::-webkit-scrollbar-track {
+  box-shadow: none;
 }
 
 .__box_btn {

@@ -1,14 +1,33 @@
-import { h } from "preact"
+import { h, Fragment } from "preact"
 import FormButton from "../formInput/FormButton"
 import FormInput from "../formInput/FormInput"
 import FormTextArea from "../formInput/FormTextarea"
 import styles from './styles.css'
-import StarIcon from '../../assets/icons/star-icon'
 import BackIcon from '../../assets/icons/back-icon'
 import { useNavigation } from "../../context/NavigationContext"
+import { useState } from "preact/hooks"
+import useValidate from "../../hooks/useValidate"
+import RatingsComponent from "./ratingsComponent"
 
 const RateExperience = () => {
   const { updateActiveView } = useNavigation()
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [ratings, setRatings] = useState(0)
+  const [submitting, setSubmitting] = useState(false)
+  const checkEmail = (/^\S+@\S+$/.test(email))
+  const emailError = useValidate(email, checkEmail, submitting, 'Enter a valid email')
+
+
+  const handleRateExperience = (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    if (emailError && messageError) {
+      setSubmitting(false)
+    } else {
+      console.log(email, message, 'yooo')
+    }
+  }
 
   return (
     <div class={styles.__container}>
@@ -17,29 +36,20 @@ const RateExperience = () => {
         <span>Back</span>
       </button>
       <div class={styles.__container_header}>
-        <h3 class={styles.__title}>Report an issue</h3>
-        <p class={styles.__desc}>Is something wrong? Let us know.</p>
+        <h3 class={styles.__title}>Rate your experience</h3>
+        <p class={styles.__desc}>Let us know how we can improve.</p>
       </div>
-
-      <div class={styles.__ratings}>
-        <button class={`${styles.__ratings_btn} active`}>
-          <StarIcon />
-        </button>
-        <button class={`${styles.__ratings_btn} active`}>
-          <StarIcon />
-        </button>
-        <button class={`${styles.__ratings_btn} active`}>
-          <StarIcon />
-        </button>
-        <button class={`${styles.__ratings_btn}`}>
-          <StarIcon />
-        </button>
-      </div>
-
-      <form class={styles.__form}>
-        <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" />
-        <FormTextArea label="Leave us a comment" placeholder="Let us know how we can improve" />
-        <FormButton type="submit">Submit</FormButton>
+      <form onSubmit={handleRateExperience} class={styles.__form}>
+        <RatingsComponent setRatings={setRatings} />
+        {
+          ratings ? (
+            <>
+              <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
+              <FormTextArea label="Leave us a comment" placeholder="Let us know how we can improve" onInput={(e) => setMessage(e.target.value)} />
+              <FormButton type="submit">Submit</FormButton>
+            </>
+          ) : null
+        }
       </form>
     </div>
   )

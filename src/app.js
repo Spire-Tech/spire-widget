@@ -5,7 +5,7 @@ import Home from "./components/home/home";
 import ToggleFeedbackBtn from "./components/toggleFeebackBtn/toggleFeedbackBtn";
 import Navigation from "./context/NavigationContext";
 
-const App = () => {
+const App = ({ token }) => {
   const [showFeedJet, setShowFeedJet] = useState(false)
 
   const toggleFeedJet = () => {

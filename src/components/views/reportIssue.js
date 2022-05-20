@@ -3,12 +3,43 @@ import FormButton from "../formInput/FormButton"
 import FormInput from "../formInput/FormInput"
 import FormTextArea from "../formInput/FormTextarea"
 import styles from './styles.css'
-import CameraIcon from '../../assets/icons/camera-icon'
 import BackIcon from "../../assets/icons/back-icon";
 import { useNavigation } from "../../context/NavigationContext";
+import { useState } from "preact/hooks"
+import useValidate from "../../hooks/useValidate";
+import ScreenshotBtn from "./ScreenshotBtn";
+import CancelImgIcon from "../../assets/icons/cancel-img-icon";
 
 const ReportIssue = () => {
   const { updateActiveView } = useNavigation()
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+  const checkEmail = (/^\S+@\S+$/.test(email))
+  const checkMessage = message.length > 3
+  const emailError = useValidate(email, checkEmail, submitting, 'Enter a valid email')
+  const messageError = useValidate(message, checkMessage, submitting, 'Enter a longer request')
+  const [images, setImages] = useState([])
+
+  const handleReportIssue = (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    if (emailError && messageError) {
+      setSubmitting(false)
+    } else {
+      console.log(email, message, 'yooo')
+    }
+  }
+
+  const addNewImage = (img) => {
+    const newImg = [...images, img]
+    setImages(newImg)
+  }
+
+  const removeImg = (index) => {
+    const newImages = images.filter(img => images.indexOf(img) !== index)
+    setImages(newImages)
+  }
 
   return (
     <div class={styles.__container}>
@@ -21,10 +52,26 @@ const ReportIssue = () => {
         <p class={styles.__desc}>Is something wrong? Let us know.</p>
       </div>
 
-      <form class={styles.__form}>
-        <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" />
-        <FormTextArea label="What’s the issue?" placeholder="Tell us more about the issue you’re having. You can take a screenshot." />
-        <button class={styles.__screenshotbtn}><CameraIcon /> Take screenshot</button>
+      <form onSubmit={handleReportIssue} class={styles.__form}>
+        <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
+        <FormTextArea label="What’s the issue?" placeholder="Tell us more about the issue you’re having. You can take a screenshot." onInput={(e) => setMessage(e.target.value)} error={messageError} required />
+        <ScreenshotBtn addNewImage={addNewImage} />
+        {
+          images.length ? (
+            <div class={styles.__images}>
+              {
+                images.map((imgg, index) => (
+                  <div class={styles.__image} key={index}>
+                    <button onClick={() => removeImg(index)} class={styles.__imagebtn}>
+                      <CancelImgIcon />
+                    </button>
+                    <img src={imgg} alt="" />
+                  </div>
+                ))
+              }
+            </div>
+          ) : null
+        }
         <FormButton type="submit">Submit</FormButton>
       </form>
     </div>

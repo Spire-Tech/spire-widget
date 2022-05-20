@@ -57,7 +57,7 @@
 .__form {
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 12px;
   width: 100%;
 }
 
@@ -75,6 +75,52 @@
 .__screenshotbtn svg {
   width: 24px;
   height: 24px;
+}
+
+.__screenshotimg {
+  width: 80px;
+}
+
+.__images {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 8px;
+  flex-wrap: wrap;
+}
+
+.__image {
+  width: 80px;
+  height: 64px;
+  object-fit: cover;
+  position: relative;
+}
+
+.__image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1200;
+}
+
+.__imagebtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: none;
+  z-index: 1500;
+}
+
+.__image img {
+  width: 100%;
+  height: 100%;
 }
 
 .__ratings {
@@ -99,7 +145,17 @@
   stroke-width: 2px;
 }
 
-.__ratings_btn.active svg {
+.__ratings_btn.__active svg {
   fill: #F5A623;
   stroke-width: 0;
+}
+
+.__ratings_input {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  right: -100%;
 }
