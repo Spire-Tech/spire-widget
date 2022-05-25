@@ -124,6 +124,7 @@
 }
 
 .__ratings {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -157,5 +158,16 @@
   height: 0;
   position: absolute;
   bottom: 0;
-  right: -100%;
+  right: 0;
+}
+
+.__submitimg {
+  width: 139px;
+  height: 139px;
+  object-fit: cover;
+}
+
+.__submitimg img {
+  width: 100%;
+  height: 100%;
 }

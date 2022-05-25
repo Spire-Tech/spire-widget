@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, Fragment } from 'preact'
 import brandimg from '../../assets/images/flutterwave-logo.png'
 import SpireIcon from '../../assets/icons/spire-icon'
 import CloseIcon from '../../assets/icons/close-icon'
@@ -9,19 +9,18 @@ import RateExperience from '../views/rateExperience'
 import ReportIssue from '../views/reportIssue'
 import FeatureRequest from '../views/featureRequest'
 
-const Home = ({ toggleFeedJet }) => {
+const Home = ({ toggleFeedJet, blocks, businessName }) => {
   const { activeView } = useNavigation()
 
-
   const returnView = () => {
-    switch (activeView) {
+    switch (activeView.title) {
       case 'home':
-        return <ListWrapper />
-      case 'rate-experience':
+        return <ListWrapper blocks={blocks} />
+      case 'ratings':
         return <RateExperience />
-      case 'report-issue':
+      case 'issue-reports':
         return <ReportIssue />
-      case 'feature-request':
+      case 'feature-requests':
         return <FeatureRequest />
       default:
         throw new Error('Invalid view')
@@ -29,21 +28,23 @@ const Home = ({ toggleFeedJet }) => {
   }
 
   return (
-    <div class={styles.__box}>
+    <>
       <button onClick={toggleFeedJet} class={styles.__box_btn}>
         <CloseIcon />
       </button>
-      <div class={styles.__box_img}>
-        <img src={brandimg} alt="" />
+      <div class={styles.__box}>
+        <div class={styles.__box_title}>
+          <h5>{businessName}</h5>
+        </div>
+        {
+          returnView()
+        }
+        <div class={styles.__box_spire}>
+          <SpireIcon />
+          <div class={styles.__box_spire_text}>Powered by <a href="https://getspire.io" target="_blank">Spire</a> </div>
+        </div>
       </div>
-      {
-        returnView()
-      }
-      <div class={styles.__box_spire}>
-        <SpireIcon />
-        <div class={styles.__box_spire_text}>Powered by <a href="getspire.io">Spire</a> </div>
-      </div>
-    </div>
+    </>
   )
 }
 

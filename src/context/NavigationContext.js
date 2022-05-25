@@ -1,13 +1,13 @@
 import { h, createContext } from 'preact';
 import { useState, useContext, useMemo } from 'preact/hooks';
 
-const NavigationContext = createContext({ activeView: 'home', updateActiveView: null })
+const NavigationContext = createContext({ activeView: { title: 'home', id: null }, updateActiveView: null })
 
 const Navigation = ({ children }) => {
-  const [activeView, setActiveView] = useState('home')
+  const [activeView, setActiveView] = useState({ title: 'home', id: null })
 
-  const updateActiveView = (view) => {
-    setActiveView(view)
+  const updateActiveView = (title, id) => {
+    setActiveView({ title, id })
   }
 
   return (
