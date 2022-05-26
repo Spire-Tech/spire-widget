@@ -1,5 +1,4 @@
 import { h, Fragment } from 'preact'
-import brandimg from '../../assets/images/flutterwave-logo.png'
 import SpireIcon from '../../assets/icons/spire-icon'
 import CloseIcon from '../../assets/icons/close-icon'
 import styles from './home.css'

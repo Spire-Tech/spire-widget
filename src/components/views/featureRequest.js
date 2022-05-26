@@ -9,11 +9,13 @@ import { useState } from "preact/hooks"
 import useValidate from "../../hooks/useValidate"
 import { sendFeedback } from "../../services"
 import SubmitBanner from './submitBanner'
+import LoadingIcon from '../../assets/icons/loading-icon'
 
 
 const FeatureRequest = () => {
   const { activeView, updateActiveView } = useNavigation()
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [submitting, setSubmitting] = useState(false)
@@ -30,11 +32,14 @@ const FeatureRequest = () => {
       setSubmitting(false)
     } else {
       try {
+        setLoading(true)
         const result = await sendFeedback(activeView.id, email, message)
         setSubmitted(true)
+        setLoading(false)
         setEmail('')
         setMessage('')
       } catch (e) {
+        setLoading(false)
         console.log(e, 'this is error')
       }
     }
@@ -59,7 +64,7 @@ const FeatureRequest = () => {
             <form onSubmit={handleFeatureRequest} class={styles.__form}>
               <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" value={email} onInput={(e) => setEmail(e.target.value)} error={emailError} required />
               <FormTextArea label="Tell us about this feature" placeholder="What are you looking to see and what’s the problem it solves." value={message} onInput={(e) => setMessage(e.target.value)} error={messageError} required />
-              <FormButton type="submit">Submit</FormButton>
+              <FormButton type="submit">{loading ? <LoadingIcon /> : 'Submit'}</FormButton>
             </form>
           </>
         )

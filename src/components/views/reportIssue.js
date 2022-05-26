@@ -12,10 +12,12 @@ import CancelImgIcon from "../../assets/icons/cancel-img-icon";
 import { handleImageUpload } from "../../services";
 import SubmitBanner from "./submitBanner";
 import { sendFeedback } from "../../services"
+import LoadingIcon from '../../assets/icons/loading-icon'
 
 const ReportIssue = () => {
   const { activeView, updateActiveView } = useNavigation()
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [submitting, setSubmitting] = useState(false)
@@ -32,6 +34,7 @@ const ReportIssue = () => {
       setSubmitting(false)
     } else {
       try {
+        setLoading(true)
         const media = []
         const uploadPromise = new Promise((resolve, reject) => {
           images.forEach(async (image, index) => {
@@ -48,11 +51,13 @@ const ReportIssue = () => {
           const result = await sendFeedback(activeView.id, email, message, 0, media)
           console.log(result)
           setSubmitted(true)
+          setLoading(false)
           setEmail('')
           setMessage('')
         })
 
       } catch (e) {
+        setLoading(false)
         console.log(e, 'this is error')
       }
     }
@@ -104,7 +109,7 @@ const ReportIssue = () => {
                   </div>
                 ) : null
               }
-              <FormButton type="submit">Submit</FormButton>
+              <FormButton type="submit">{loading ? <LoadingIcon /> : 'Submit'}</FormButton>
             </form>
           </>
         )}

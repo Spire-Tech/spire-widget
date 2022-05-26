@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: './src/index.js',
@@ -91,6 +92,12 @@ module.exports = {
         template: path.resolve(__dirname, 'index.html'),
       }),
     isProduction ? null : new webpack.HotModuleReplacementPlugin(),
+    isProduction ? null : new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
     // removes the null conditional entries
   ].filter(Boolean),
 };

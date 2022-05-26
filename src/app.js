@@ -37,7 +37,7 @@ const App = ({ token }) => {
 
   return (
     <Navigation>
-      <div class={styles.__feedjet}>
+      <div class={`${styles.__feedjet}`}>
         {showFeedJet && (
           <div class={styles.__feedjet_overlay}></div>
         )}

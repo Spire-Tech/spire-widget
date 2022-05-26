@@ -10,11 +10,13 @@ import useValidate from "../../hooks/useValidate"
 import RatingsComponent from "./ratingsComponent"
 import { sendFeedback } from "../../services"
 import SubmitBanner from "./submitBanner"
+import LoadingIcon from '../../assets/icons/loading-icon'
 
 
 const RateExperience = () => {
   const { activeView, updateActiveView } = useNavigation()
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [ratings, setRatings] = useState(0)
@@ -30,11 +32,14 @@ const RateExperience = () => {
       setSubmitting(false)
     } else {
       try {
+        setLoading(true)
         const result = await sendFeedback(activeView.id, email, message, ratings)
         setSubmitted(true)
         setEmail('')
         setMessage('')
+        setLoading(false)
       } catch (e) {
+        setLoading(false)
         console.log(e, 'this is error')
       }
     }
@@ -62,7 +67,7 @@ const RateExperience = () => {
                   <>
                     <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
                     <FormTextArea label="Leave us a comment" placeholder="Let us know how we can improve" onInput={(e) => setMessage(e.target.value)} />
-                    <FormButton type="submit">Submit</FormButton>
+                    <FormButton type="submit">{loading ? <LoadingIcon /> : 'Submit'}</FormButton>
                   </>
                 ) : null
               }

@@ -1,4 +1,4 @@
-const liveURL = "https://cors-anywhere.herokuapp.com/fj-lite-node.herokuapp.com";
+const liveURL = "https://fj-lite-node.herokuapp.com";
 const spire = document.getElementById('_s-w')
 const accessToken = spire.getAttribute('widget')
 
