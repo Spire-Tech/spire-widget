@@ -125,44 +125,6 @@
   height: 100% !important;
 }
 
-.__ratings {
-  position: relative !important;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  column-gap: 14px !important;
-  margin: 1em 0 !important;
-}
-
-.__ratings_btn {
-  border: none !important;
-  background: none !important;
-  width: 40px !important;
-  height: 40px !important;
-}
-
-.__ratings_btn svg {
-  width: 40px !important;
-  height: 40px !important;
-  stroke-width: 2px !important;
-}
-
-.__ratings_btn.__active svg {
-  fill: #F5A623 !important;
-  stroke-width: 0 !important;
-}
-
-.__ratings_input {
-  opacity: 0 !important;
-  pointer-events: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  right: 0 !important;
-}
-
 .__submitimg {
   width: 150px !important;
   height: 150px !important;

@@ -18,13 +18,14 @@ const getIcon = (slug) => {
   }
 }
 
-const ListItem = ({ id, title, slug, subTitle }) => {
+const ListItem = ({ id, title, slug, subTitle, icon }) => {
 
   const { updateActiveView } = useNavigation()
 
   return (
     <li onClick={() => updateActiveView(slug, id)} role="button" class={styles.list__item}>
       <div class={styles.list__item_icon}>
+        {/* <img src={icon} alt={slug} /> */}
         {getIcon(slug)}
       </div>
       <div class={styles.list__item_content}>
@@ -44,7 +45,7 @@ const ListWrapper = ({ blocks }) => {
       {
         blocks.length ? (
           blocks.map(item => (
-            <ListItem key={item.id} id={item.id} title={item.title} subTitle={item.subTitle} slug={item.slug} />
+            <ListItem key={item.id} id={item.id} title={item.title} subTitle={item.subTitle} slug={item.slug} icon={item.darkIcon} />
           ))
         ) : null
       }

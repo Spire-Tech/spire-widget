@@ -25,6 +25,16 @@
   cursor: pointer !important;
 }
 
+.list__item_icon {
+  width: 40px !important;
+  height: auto !important;
+  object-fit: cover !important;
+}
+
+.list__item_icon img {
+  width: 40px !important;
+}
+
 .list__item_icon svg {
   width: 40px !important;
   height: 40px !important;
