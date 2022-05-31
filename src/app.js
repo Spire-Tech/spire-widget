@@ -20,7 +20,6 @@ const App = ({ token }) => {
     try {
       setLoading(true)
       const data = await getWidget()
-      console.log(data, 'this is data')
       setBusinessName(data.widget.businessName)
       setBlocks(data.widget.validatedFeedBlocks)
       setLoading(false)

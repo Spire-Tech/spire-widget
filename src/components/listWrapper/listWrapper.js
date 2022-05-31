@@ -11,7 +11,7 @@ const getIcon = (slug) => {
       return <BulbIcon />
     case 'issue-reports':
       return <WarningIcon />
-    case 'ratings':
+    case 'satisfactions':
       return <SmileyIcon />
     default:
       throw new Error('Unknown slug')
