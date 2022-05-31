@@ -7,7 +7,7 @@ import BackIcon from '../../assets/icons/back-icon'
 import { useNavigation } from "../../context/NavigationContext"
 import { useState } from "preact/hooks"
 import useValidate from "../../hooks/useValidate"
-import RatingsComponent from "./ratingsComponent"
+import CsatRatings from "../customer-satisfaction/CsatRatings"
 import { sendFeedback } from "../../services"
 import SubmitBanner from "./submitBanner"
 import LoadingIcon from '../../assets/icons/loading-icon'
@@ -57,11 +57,11 @@ const RateExperience = () => {
               <span>Back</span>
             </button>
             <div class={styles.__container_header}>
-              <h3 class={styles.__title}>Rate your experience</h3>
+              <h3 class={styles.__title}>How was your experience</h3>
               <p class={styles.__desc}>Let us know how we can improve.</p>
             </div>
             <form onSubmit={handleRateExperience} class={styles.__form}>
-              <RatingsComponent setRatings={setRatings} />
+              <CsatRatings setRatings={setRatings} />
               {
                 ratings ? (
                   <>

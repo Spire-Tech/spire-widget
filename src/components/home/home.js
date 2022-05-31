@@ -15,7 +15,7 @@ const Home = ({ toggleFeedJet, blocks, businessName }) => {
     switch (activeView.title) {
       case 'home':
         return <ListWrapper blocks={blocks} />
-      case 'ratings':
+      case 'satisfactions':
         return <RateExperience />
       case 'issue-reports':
         return <ReportIssue />

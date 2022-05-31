@@ -47,9 +47,7 @@ const ReportIssue = () => {
         })
 
         uploadPromise.then(async () => {
-          console.log(media, 'this is media')
           const result = await sendFeedback(activeView.id, email, message, 0, media)
-          console.log(result)
           setSubmitted(true)
           setLoading(false)
           setEmail('')
