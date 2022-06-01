@@ -37,13 +37,17 @@ const ReportIssue = () => {
         setLoading(true)
         const media = []
         const uploadPromise = new Promise((resolve, reject) => {
-          images.forEach(async (image, index) => {
-            const url = await handleImageUpload(image)
-            media.push({ fileURL: url, category: "image" })
-            if (index === (images.length - 1)) {
-              resolve()
-            }
-          })
+          if (images.length) {
+            images.forEach(async (image, index) => {
+              const url = await handleImageUpload(image)
+              media.push({ fileURL: url, category: "image" })
+              if (index === (images.length - 1)) {
+                resolve()
+              }
+            })
+          } else {
+            resolve()
+          }
         })
 
         uploadPromise.then(async () => {
