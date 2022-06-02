@@ -11,7 +11,23 @@ const CsatRatings = ({ setRatings }) => {
 
   const handleChange = (e) => {
     setValue(e.target.value)
-    setRatings(e.target.value)
+    switch (e.target.value) {
+      case 'very-bad':
+        setRatings(1)
+        break;
+      case 'not-good':
+        setRatings(2)
+        break;
+      case 'just-okay':
+        setRatings(3)
+        break;
+      case 'loved-it':
+        setRatings(4)
+        break;
+      default:
+        setRatings(0)
+        break;
+    }
   }
 
   return (
