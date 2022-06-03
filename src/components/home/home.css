@@ -11,6 +11,7 @@
   justify-content: flex-start !important;
   align-items: center !important;
   background: #fff !important;
+  box-shadow: 0 2px 4px 0 rgb(17 22 26 / 16%), 0 0 4px 0 rgb(17 22 26 / 8%), 0 4px 8px 0 rgb(17 22 26 / 4%);
   
   z-index: 1100 !important;
   padding: 24px 0 !important;
@@ -41,7 +42,8 @@
   align-items: center !important;
   background-color: #fff !important;
   cursor: pointer !important;
-  z-index: 20000 !important;
+  z-index: 1000000000000 !important;
+  box-shadow: 0 2px 4px 0 rgb(17 22 26 / 16%), 0 0 4px 0 rgb(17 22 26 / 8%), 0 4px 8px 0 rgb(17 22 26 / 4%);
 }
 
 .__box_btn:active, .__box_btn:focus {

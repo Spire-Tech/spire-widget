@@ -37,6 +37,7 @@
   justify-content: flex-end !important;
   align-items: flex-end !important;
   row-gap: 16px !important;
+  z-index: 1000000000000;
  }
  
  .__feedjet_overlay {

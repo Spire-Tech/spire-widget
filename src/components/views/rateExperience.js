@@ -26,6 +26,7 @@ const RateExperience = () => {
 
 
   const handleRateExperience = async (e) => {
+    console.log(ratings, 'this is ratinsss')
     e.preventDefault()
     setSubmitting(true)
     if (emailError && messageError) {
