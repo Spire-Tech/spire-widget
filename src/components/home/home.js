@@ -28,7 +28,7 @@ const Home = ({ toggleFeedJet, blocks, businessName }) => {
 
   return (
     <>
-      <button onClick={toggleFeedJet} class={styles.__box_btn}>
+      <button onClick={toggleFeedJet} class={styles.__box_btn} aria-label="close modal">
         <CloseIcon />
       </button>
       <div class={styles.__box}>
