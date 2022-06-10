@@ -1,4 +1,7 @@
 .__btn {
+  position: absolute !important;
+  right: 20px !important;
+  bottom: 100px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -11,7 +14,8 @@
   line-height: 1.5rem !important;
   border: none !important;
   cursor: pointer !important;
-  z-index: 100000000000 !important;
+  transform: rotate(90deg) !important;
+  transform-origin: right !important;
 }
 
 .__btn:active, .__btn:focus {

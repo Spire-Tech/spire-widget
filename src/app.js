@@ -40,10 +40,12 @@ const App = ({ token }) => {
         {/* {showFeedJet && (
           <div class={styles.__feedjet_overlay}></div>
         )} */}
-        {showFeedJet && (
+        {showFeedJet ? (
           <Home toggleFeedJet={toggleFeedJet} blocks={blocks} businessName={businessName} />
+        ) : (
+          <ToggleFeedbackBtn toggleFeedJet={toggleFeedJet} />
         )}
-        <ToggleFeedbackBtn toggleFeedJet={toggleFeedJet} />
+
       </div>
     </Navigation>
   )
