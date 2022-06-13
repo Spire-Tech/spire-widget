@@ -5,7 +5,7 @@ import style from './toggleFeedback.css'
 const ToggleFeedbackBtn = ({ toggleFeedJet }) => {
   return (
     <button onClick={toggleFeedJet} class={style.__btn}>
-      <FeedjetIcon /> Leave a feedback
+      <FeedjetIcon /> Leave feedback
     </button>
   )
 }
