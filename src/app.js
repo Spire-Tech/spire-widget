@@ -11,6 +11,8 @@ const App = ({ token }) => {
   const [loading, setLoading] = useState(false)
   const [blocks, setBlocks] = useState([])
   const [businessName, setBusinessName] = useState('')
+  const [businessId, setBusinessId] = useState('')
+  const [widgetId, setWidgetId] = useState('')
 
   const toggleFeedJet = () => {
     setShowFeedJet(status => !status)
@@ -20,8 +22,11 @@ const App = ({ token }) => {
     try {
       setLoading(true)
       const data = await getWidget()
-      setBusinessName(data.widget.businessName)
-      setBlocks(data.widget.validatedFeedBlocks)
+      console.log(data, 'this is widget data')
+      setBusinessName(data.data.businessName)
+      setBusinessId(data.data.businessId)
+      setWidgetId(data.data.id)
+      setBlocks(data.data.blocks)
       setLoading(false)
     } catch (e) {
       setLoading(false)
@@ -37,11 +42,8 @@ const App = ({ token }) => {
   return (
     <Navigation>
       <div class={`${styles.__feedjet}`}>
-        {/* {showFeedJet && (
-          <div class={styles.__feedjet_overlay}></div>
-        )} */}
         {showFeedJet ? (
-          <Home toggleFeedJet={toggleFeedJet} blocks={blocks} businessName={businessName} />
+          <Home toggleFeedJet={toggleFeedJet} blocks={blocks} businessName={businessName} businessId={businessId} widgetId={widgetId} />
         ) : (
           <ToggleFeedbackBtn toggleFeedJet={toggleFeedJet} />
         )}

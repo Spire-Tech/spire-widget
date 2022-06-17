@@ -1,10 +1,10 @@
-const liveURL = "https://fj-lite-node.herokuapp.com";
+const liveURL = "https://spire-rest-api.herokuapp.com/user";
 const spire = document.getElementById('_s-w')
 const accessToken = spire.getAttribute('widget')
 
 export const getWidget = async () => {
   try {
-    const res = await fetch(`${liveURL}/widget/${accessToken}`, {
+    const res = await fetch(`${liveURL}/fetch_widget/${accessToken}`, {
       method: "GET",
       headers: {
         "Content-type": "application/json"
@@ -18,7 +18,7 @@ export const getWidget = async () => {
   }
 }
 
-export const sendFeedback = async (id, email, comment, rating = 0, media = []) => {
+export const sendFeedback = async (request) => {
   const res = await fetch(`${liveURL}/feedback`, {
     method: "POST",
     headers: {
@@ -26,12 +26,15 @@ export const sendFeedback = async (id, email, comment, rating = 0, media = []) =
     },
     credentials: "same-origin",
     body: JSON.stringify({
-      feedBlockId: id,
-      customerEmail: email,
-      comment: comment,
-      media: media,
+      widgetId: request.widgetId,
+      businessId: request.businessId,
+      feedBlockId: request.id,
+      feedbackType: request.feedbackType,
+      customerEmail: request.email,
+      comment: request.comment,
+      media: request.media,
       channel: "mobile",
-      rating: rating
+      rating: request.rating
     }),
   })
   return await res.json()

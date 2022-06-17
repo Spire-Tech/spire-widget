@@ -8,13 +8,13 @@ import RateExperience from '../views/rateExperience'
 import ReportIssue from '../views/reportIssue'
 import FeatureRequest from '../views/featureRequest'
 
-const Home = ({ toggleFeedJet, blocks, businessName }) => {
+const Home = ({ toggleFeedJet, blocks, businessName, businessId, widgetId }) => {
   const { activeView } = useNavigation()
 
   const returnView = () => {
     switch (activeView.title) {
       case 'home':
-        return <ListWrapper blocks={blocks} />
+        return <ListWrapper blocks={blocks} businessId={businessId} widgetId={widgetId} />
       case 'satisfactions':
         return <RateExperience />
       case 'issue-reports':

@@ -33,11 +33,22 @@ const FeatureRequest = () => {
     } else {
       try {
         setLoading(true)
-        const result = await sendFeedback(activeView.id, email, message)
-        setSubmitted(true)
-        setLoading(false)
-        setEmail('')
-        setMessage('')
+        const res = await sendFeedback({
+          id: activeView.id,
+          businessId: activeView.businessId,
+          feedbackType: activeView.title,
+          widgetId: activeView.widgetId,
+          email: email,
+          comment: message,
+          media: [],
+          rating: 0
+        })
+        if (!res.error) {
+          setSubmitted(true)
+          setLoading(false)
+          setEmail('')
+          setMessage('')
+        }
       } catch (e) {
         setLoading(false)
         console.log(e, 'this is error')

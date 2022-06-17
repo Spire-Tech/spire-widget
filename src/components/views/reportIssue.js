@@ -51,11 +51,23 @@ const ReportIssue = () => {
         })
 
         uploadPromise.then(async () => {
-          const result = await sendFeedback(activeView.id, email, message, 0, media)
-          setSubmitted(true)
-          setLoading(false)
-          setEmail('')
-          setMessage('')
+          const result = await sendFeedback({
+            id: activeView.id,
+            businessId: activeView.businessId,
+            feedbackType: activeView.title,
+            widgetId: activeView.widgetId,
+            email: email,
+            comment: message,
+            media: [],
+            rating: 0
+          })
+          if (!result.error) {
+            setSubmitted(true)
+            setLoading(false)
+            setEmail('')
+            setMessage('')
+          }
+
         })
 
       } catch (e) {

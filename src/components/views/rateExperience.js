@@ -33,11 +33,22 @@ const RateExperience = () => {
     } else {
       try {
         setLoading(true)
-        const result = await sendFeedback(activeView.id, email, message, ratings)
-        setSubmitted(true)
-        setEmail('')
-        setMessage('')
-        setLoading(false)
+        const res = await sendFeedback({
+          id: activeView.id,
+          businessId: activeView.businessId,
+          feedbackType: activeView.title,
+          widgetId: activeView.widgetId,
+          email: email,
+          comment: message,
+          media: [],
+          rating: ratings
+        })
+        if (!res.error) {
+          setSubmitted(true)
+          setLoading(false)
+          setEmail('')
+          setMessage('')
+        }
       } catch (e) {
         setLoading(false)
         console.log(e, 'this is error')
