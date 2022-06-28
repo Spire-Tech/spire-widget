@@ -45,6 +45,13 @@
     "svg-inline-loader": "^0.8.2"
   },
   "eslintConfig": {
-      "extends": "preact"
+    "extends": [
+      "preact",
+      "prettier"
+    ],
+    "rules": {
+      "no-console": "warn",
+      "import/order": "warn"
+    }
   }
 }
