@@ -40,7 +40,7 @@ export const sendFeedback = async (request) => {
   return await res.json()
 }
 
-export const handleImageUpload = async (file) => {
+export const handleMediaUpload = async (file) => {
   try {
     const formData = new FormData();
     formData.append("file", file);

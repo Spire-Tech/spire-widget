@@ -22,7 +22,7 @@ const App = ({ token }) => {
     try {
       setLoading(true)
       const data = await getWidget()
-      console.log(data, 'this is widget data')
+      // console.log(data, 'this is widget data')
       setBusinessName(data.data.businessName)
       setBusinessId(data.data.businessId)
       setWidgetId(data.data.id)

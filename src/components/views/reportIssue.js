@@ -9,10 +9,12 @@ import { useState } from "preact/hooks"
 import useValidate from "../../hooks/useValidate";
 import ScreenshotBtn from "./ScreenshotBtn";
 import CancelImgIcon from "../../assets/icons/cancel-img-icon";
-import { handleImageUpload } from "../../services";
+import { handleMediaUpload } from "../../services";
 import SubmitBanner from "./submitBanner";
 import { sendFeedback } from "../../services"
 import LoadingIcon from '../../assets/icons/loading-icon'
+import ScreenRecordBtn from "./ScreenrecordBtn";
+import UploadBtn from "./UploadBtn";
 
 const ReportIssue = () => {
   const { activeView, updateActiveView } = useNavigation()
@@ -25,7 +27,10 @@ const ReportIssue = () => {
   const checkMessage = message.length > 3
   const emailError = useValidate(email, checkEmail, submitting, 'Enter a valid email')
   const messageError = useValidate(message, checkMessage, submitting, 'Enter a longer request')
-  const [images, setImages] = useState([])
+  const [media, setMedia] = useState([])
+
+  const isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+    (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))
 
   const handleReportIssue = (e) => {
     e.preventDefault()
@@ -35,13 +40,13 @@ const ReportIssue = () => {
     } else {
       try {
         setLoading(true)
-        const media = []
+        const newMedia = []
         const uploadPromise = new Promise((resolve, reject) => {
-          if (images.length) {
-            images.forEach(async (image, index) => {
-              const url = await handleImageUpload(image)
-              media.push({ fileURL: url, category: "image" })
-              if (index === (images.length - 1)) {
+          if (media.length) {
+            media.forEach(async (item, index) => {
+              const url = await handleMediaUpload(item.file)
+              newMedia.push({ fileURL: url, category: item.category })
+              if (index === (media.length - 1)) {
                 resolve()
               }
             })
@@ -58,7 +63,7 @@ const ReportIssue = () => {
             widgetId: activeView.widgetId,
             email: email,
             comment: message,
-            media: [],
+            media: newMedia,
             rating: 0
           })
           if (!result.error) {
@@ -77,14 +82,14 @@ const ReportIssue = () => {
     }
   }
 
-  const addNewImage = (img) => {
-    const newImg = [...images, img]
-    setImages(newImg)
+  const addNewMedia = (item) => {
+    const newMedia = [...media, item]
+    setMedia(newMedia)
   }
 
-  const removeImg = (index) => {
-    const newImages = images.filter(img => images.indexOf(img) !== index)
-    setImages(newImages)
+  const removeMedia = (index) => {
+    const newMedia = media.filter(item => media.indexOf(item) !== index)
+    setMedia(newMedia)
   }
 
   return (
@@ -106,19 +111,38 @@ const ReportIssue = () => {
             <form onSubmit={handleReportIssue} class={styles.__form}>
               <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
               <FormTextArea label="What’s the issue?" placeholder="Tell us more about the issue you’re having. You can take a screenshot." onInput={(e) => setMessage(e.target.value)} error={messageError} required />
-              <ScreenshotBtn addNewImage={addNewImage} />
               {
-                images.length ? (
+                isMobile ? (
+                  <UploadBtn addNewImage={addNewMedia} />
+                ) : (
+                  <div class={styles.__action_flex}>
+                    <ScreenshotBtn addNewImage={addNewMedia} />
+                    <ScreenRecordBtn addNewVideo={addNewMedia} />
+                  </div>
+                )
+              }
+
+              {
+                media.length ? (
                   <div class={styles.__images}>
                     {
-                      images.map((imgg, index) => (
-                        <div class={styles.__image} key={index}>
-                          <button type="button" aria-label="Remove Image" onClick={() => removeImg(index)} class={styles.__imagebtn}>
-                            <CancelImgIcon />
-                          </button>
-                          <img src={imgg} alt="" />
-                        </div>
-                      ))
+                      media.map((item, index) => {
+                        // const url = URL.createObjectURL(item.file);
+                        return (
+                          <div class={styles.__image} key={index}>
+                            <button type="button" aria-label={`Remove ${item.category}`} onClick={() => removeMedia(index)} class={styles.__imagebtn}>
+                              <CancelImgIcon />
+                            </button>
+                            {
+                              item.category === "image" ? (
+                                <img src={isMobile ? item.url : item.file} alt="image file" />
+                              ) : (
+                                <img src="https://res.cloudinary.com/spire-tech/image/upload/v1656420275/icons/25481_glz2cs.jpg" alt="video file" />
+                              )
+                            }
+                          </div>
+                        )
+                      })
                     }
                   </div>
                 ) : null

@@ -33,7 +33,7 @@ const ScreenshotBtn = ({ addNewImage }) => {
         context.fillRect(0, 0, w, h);
         context.drawImage(video, 0, 0, w, h);
         const frame = canvas.toDataURL('image/png')
-        addNewImage(frame)
+        addNewImage({ category: "image", file: frame })
         captureStream.getTracks().forEach(track => track.stop());
       }, false);
 
