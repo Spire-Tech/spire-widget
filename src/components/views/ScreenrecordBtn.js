@@ -55,7 +55,7 @@ const ScreenRecordBtn = ({ addNewVideo }) => {
 
   return (
     <>
-      <button type="button" class={styles.__screenrecordbtn} onClick={start ? stopRecord : startRecord}><VideoIcon /> {start ? 'Stop Record' : 'Record Action'}</button>
+      <button type="button" class={styles.__screenrecordbtn} onClick={start ? stopRecord : startRecord}><VideoIcon /> {start ? 'Stop Record' : 'Record Screen'}</button>
     </>
   )
 }

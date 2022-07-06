@@ -23,7 +23,7 @@ const ListItem = ({ id, title, slug, subTitle, businessId, widgetId }) => {
   const { updateActiveView } = useNavigation()
 
   return (
-    <li onClick={() => updateActiveView(slug, id, businessId, widgetId)} role="button" class={styles.list__item}>
+    <li role="menuitem" aria-haspopup="true" onClick={() => updateActiveView(slug, id, businessId, widgetId)} class={styles.list__item}>
       <div class={styles.list__item_icon}>
         {/* <img src={icon} alt={slug} /> */}
         {getIcon(slug)}

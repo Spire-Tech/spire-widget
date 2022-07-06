@@ -15,6 +15,7 @@ import { sendFeedback } from "../../services"
 import LoadingIcon from '../../assets/icons/loading-icon'
 import ScreenRecordBtn from "./ScreenrecordBtn";
 import UploadBtn from "./UploadBtn";
+import NewImage from "./NewImage";
 
 const ReportIssue = () => {
   const { activeView, updateActiveView } = useNavigation()
@@ -28,9 +29,10 @@ const ReportIssue = () => {
   const emailError = useValidate(email, checkEmail, submitting, 'Enter a valid email')
   const messageError = useValidate(message, checkMessage, submitting, 'Enter a longer request')
   const [media, setMedia] = useState([])
+  const [mediaType, setMediaType] = useState(null)
 
-  const isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-    (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))
+  // const isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+  //   (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))
 
   const handleReportIssue = (e) => {
     e.preventDefault()
@@ -83,6 +85,11 @@ const ReportIssue = () => {
   }
 
   const addNewMedia = (item) => {
+    if(item.category === 'image') {
+      setMediaType('IMAGE')
+    }else {
+      setMediaType('VIDEO')
+    }
     const newMedia = [...media, item]
     setMedia(newMedia)
   }
@@ -112,16 +119,14 @@ const ReportIssue = () => {
               <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
               <FormTextArea label="What’s the issue?" placeholder="Tell us more about the issue you’re having. You can take a screenshot." onInput={(e) => setMessage(e.target.value)} error={messageError} required />
               {
-                isMobile ? (
-                  <UploadBtn addNewImage={addNewMedia} />
-                ) : (
+                !media.length && (
                   <div class={styles.__action_flex}>
                     <ScreenshotBtn addNewImage={addNewMedia} />
                     <ScreenRecordBtn addNewVideo={addNewMedia} />
                   </div>
                 )
               }
-
+              
               {
                 media.length ? (
                   <div class={styles.__images}>
@@ -135,7 +140,7 @@ const ReportIssue = () => {
                             </button>
                             {
                               item.category === "image" ? (
-                                <img src={isMobile ? item.url : item.file} alt="image file" />
+                                <img src={item.url ? item.url : item.file} alt="image file" />
                               ) : (
                                 <img src="https://res.cloudinary.com/spire-tech/image/upload/v1656420275/icons/25481_glz2cs.jpg" alt="video file" />
                               )
@@ -143,6 +148,11 @@ const ReportIssue = () => {
                           </div>
                         )
                       })
+                    }
+                    {
+                      mediaType === 'IMAGE' && (
+                        <NewImage addNewImage={addNewMedia} />
+                      )
                     }
                   </div>
                 ) : null

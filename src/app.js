@@ -7,16 +7,11 @@ import Navigation from "./context/NavigationContext";
 import { getWidget } from './services'
 
 const App = ({ token }) => {
-  const [showFeedJet, setShowFeedJet] = useState(false)
   const [loading, setLoading] = useState(false)
   const [blocks, setBlocks] = useState([])
   const [businessName, setBusinessName] = useState('')
   const [businessId, setBusinessId] = useState('')
   const [widgetId, setWidgetId] = useState('')
-
-  const toggleFeedJet = () => {
-    setShowFeedJet(status => !status)
-  }
 
   const fetchWidget = async () => {
     try {
@@ -42,12 +37,8 @@ const App = ({ token }) => {
   return (
     <Navigation>
       <div class={`${styles.__feedjet}`}>
-        {showFeedJet ? (
-          <Home toggleFeedJet={toggleFeedJet} blocks={blocks} businessName={businessName} businessId={businessId} widgetId={widgetId} />
-        ) : (
-          <ToggleFeedbackBtn toggleFeedJet={toggleFeedJet} />
-        )}
-
+          <Home blocks={blocks} businessName={businessName} businessId={businessId} widgetId={widgetId} />
+          <ToggleFeedbackBtn />
       </div>
     </Navigation>
   )

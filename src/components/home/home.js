@@ -9,7 +9,7 @@ import ReportIssue from '../views/reportIssue'
 import FeatureRequest from '../views/featureRequest'
 
 const Home = ({ toggleFeedJet, blocks, businessName, businessId, widgetId }) => {
-  const { activeView } = useNavigation()
+  const { activeView, minimize, triggerMinimize } = useNavigation()
 
   const returnView = () => {
     switch (activeView.title) {
@@ -28,10 +28,10 @@ const Home = ({ toggleFeedJet, blocks, businessName, businessId, widgetId }) => 
 
   return (
     <>
-      <button onClick={toggleFeedJet} class={styles.__box_btn} aria-label="close modal">
+      <button onClick={() => triggerMinimize(true)} class={`${styles.__box_btn} ${minimize ? styles.__hide : ''}`} aria-label="close menu">
         <CloseIcon />
       </button>
-      <div class={styles.__box}>
+      <div role="menu" class={`${styles.__box} ${minimize ? styles.__hide : ''}`}>
         <div class={styles.__box_title}>
           <h5>{businessName}</h5>
         </div>
