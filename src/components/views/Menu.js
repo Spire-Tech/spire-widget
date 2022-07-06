@@ -55,7 +55,6 @@ const Menu = ({ addNewImage, closeMenu }) => {
     fileInput.click()
     fileInput.onchange = () => {
       const fileList = Array.from(fileInput.files);
-      console.log(fileList, 'this is filelist')
       if (!fileList) return;
       fileList.forEach((file) => {
         const fileSize = file.size / 1024 / 1024;
