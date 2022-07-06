@@ -73,6 +73,9 @@ const ReportIssue = () => {
             setLoading(false)
             setEmail('')
             setMessage('')
+            setTimeout(() => {
+              updateActiveView('home')
+            }, 6000)
           }
 
         })
