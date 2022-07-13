@@ -29,8 +29,6 @@
 
 .__feedjet {
   position: fixed !important;
-  bottom: 8px !important;
-  right: 8px !important;
   display: flex !important;
   width: auto !important;
   height: auto !important;
@@ -38,6 +36,26 @@
   align-items: center !important;
   /* column-gap: 16px !important; */
   z-index: 1000000000000;
+ }
+
+ .__bottom_right {
+  bottom: 5px !important;
+  right: 2px !important;
+ }
+
+ .__bottom_left {
+  bottom: 5px !important;
+  left: 2px !important;
+ }
+
+ .__center_right {
+  bottom: 30px !important;
+  right: 0px !important;
+ }
+
+ .__center_left {
+  bottom: 30px !important;
+  left: 0px !important;
  }
  
  /* .__feedjet_overlay {

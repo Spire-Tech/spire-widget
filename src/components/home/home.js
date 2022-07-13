@@ -8,7 +8,7 @@ import RateExperience from '../views/rateExperience'
 import ReportIssue from '../views/reportIssue'
 import FeatureRequest from '../views/featureRequest'
 
-const Home = ({ toggleFeedJet, blocks, businessName, businessId, widgetId }) => {
+const Home = ({ positon, blocks, businessName, businessId, widgetId }) => {
   const { activeView, minimize, triggerMinimize } = useNavigation()
 
   const returnView = () => {

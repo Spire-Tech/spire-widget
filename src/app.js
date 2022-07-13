@@ -5,6 +5,7 @@ import Home from "./components/home/home";
 import ToggleFeedbackBtn from "./components/toggleFeebackBtn/toggleFeedbackBtn";
 import Navigation from "./context/NavigationContext";
 import { getWidget } from './services'
+import { handlePostioning } from "./utils";
 
 const App = ({ token }) => {
   const [loading, setLoading] = useState(false)
@@ -12,6 +13,7 @@ const App = ({ token }) => {
   const [businessName, setBusinessName] = useState('')
   const [businessId, setBusinessId] = useState('')
   const [widgetId, setWidgetId] = useState('')
+  const [position, setPosition] = useState('')
 
   const fetchWidget = async () => {
     try {
@@ -22,6 +24,7 @@ const App = ({ token }) => {
       setBusinessId(data.data.businessId)
       setWidgetId(data.data.id)
       setBlocks(data.data.blocks)
+      setPosition(data.data.feedbackButtonStyles.buttonPosition)
       setLoading(false)
     } catch (e) {
       setLoading(false)
@@ -36,10 +39,14 @@ const App = ({ token }) => {
 
   return (
     <Navigation>
-      <div class={`${styles.__feedjet}`}>
-          <Home blocks={blocks} businessName={businessName} businessId={businessId} widgetId={widgetId} />
-          <ToggleFeedbackBtn />
+      {
+        !loading && (
+        <div class={`${styles.__feedjet} ${styles[handlePostioning(position)]}`}>
+          <Home blocks={blocks} businessName={businessName} businessId={businessId} widgetId={widgetId} position={position} />
+          <ToggleFeedbackBtn position={position} />
       </div>
+        )
+      }
     </Navigation>
   )
 }

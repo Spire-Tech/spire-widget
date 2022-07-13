@@ -34,3 +34,18 @@ export const handleCapture = async () => {
     console.error("Error: " + err);
   }
 };
+
+export const handlePostioning = (position) => {
+  switch(position) {
+    case 'BOTTOM_RIGHT':
+      return '__bottom_right'
+    case 'BOTTOM_LEFT':
+      return '__bottom_left'
+    case 'CENTER_RIGHT':
+      return '__center_right'
+    case 'CENTER_LEFT': 
+      return '__center_left' 
+    default :
+      return '__bottom_right'  
+  }
+}

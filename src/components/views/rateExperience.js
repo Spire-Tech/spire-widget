@@ -50,7 +50,7 @@ const RateExperience = () => {
           setMessage('')
           setTimeout(() => {
             updateActiveView('home')
-          }, 6000)
+          }, 4000)
         }
       } catch (e) {
         setLoading(false)

@@ -1,7 +1,5 @@
 .__btn {
   position: absolute !important;
-  right: 30px !important;
-  bottom: 100px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -14,9 +12,31 @@
   line-height: 1.5rem !important;
   border: none !important;
   cursor: pointer !important;
-  transform: rotate(90deg) !important;
-  transform-origin: right !important;
 }
+
+.__bottom_right {
+  right: 1px !important;
+  bottom: 3px !important;
+ }
+
+.__bottom_left {
+  left: 1px !important;
+  bottom: 3px !important;
+ }
+
+ .__center_right {
+  right: 5px !important;
+  bottom: 350px !important;
+  transform: rotate(90deg) !important;
+  transform-origin: 87px 105px !important;
+ }
+
+.__center_left {
+  left: 5px !important;
+  bottom: 350px !important;
+  transform: rotate(90deg) !important;
+  transform-origin: 5px 40px !important;
+ }
 
 .__btn:active, .__btn:focus {
   outline: 1px solid #300226 !important;
