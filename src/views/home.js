@@ -1,12 +1,12 @@
 import { h, Fragment } from 'preact'
-import SpireIcon from '../../assets/icons/spire-icon'
-import CloseIcon from '../../assets/icons/close-icon'
-import styles from './home.css'
-import ListWrapper from '../listWrapper/listWrapper'
-import { useNavigation } from '../../context/NavigationContext'
-import RateExperience from '../views/rateExperience'
-import ReportIssue from '../views/reportIssue'
-import FeatureRequest from '../views/featureRequest'
+import SpireIcon from '../assets/icons/spire-icon'
+import CloseIcon from '../assets/icons/close-icon'
+import styles from './styles.css'
+import ListWrapper from '../components/listWrapper/listWrapper'
+import { useNavigation } from '../context/NavigationContext'
+import RateExperience from './rateExperience'
+import ReportIssue from './reportIssue'
+import FeatureRequest from './featureRequest'
 
 const Home = ({ positon, blocks, businessName, businessId, widgetId }) => {
   const { activeView, minimize, triggerMinimize } = useNavigation()

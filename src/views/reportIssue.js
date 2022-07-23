@@ -1,21 +1,20 @@
 import { h, Fragment } from "preact";
-import FormButton from "../formInput/FormButton"
-import FormInput from "../formInput/FormInput"
-import FormTextArea from "../formInput/FormTextarea"
+import FormButton from "../components/formInput/FormButton"
+import FormInput from "../components/formInput/FormInput"
+import FormTextArea from "../components/formInput/FormTextarea"
 import styles from './styles.css'
-import BackIcon from "../../assets/icons/back-icon";
-import { useNavigation } from "../../context/NavigationContext";
+import BackIcon from "../assets/icons/back-icon";
+import { useNavigation } from "../context/NavigationContext";
 import { useState } from "preact/hooks"
-import useValidate from "../../hooks/useValidate";
-import ScreenshotBtn from "./ScreenshotBtn";
-import CancelImgIcon from "../../assets/icons/cancel-img-icon";
-import { handleMediaUpload } from "../../services";
+import useValidate from "../hooks/useValidate";
+import ScreenshotBtn from "../components/media/ScreenshotBtn";
+import CancelImgIcon from "../assets/icons/cancel-img-icon";
+import { handleMediaUpload } from "../services";
 import SubmitBanner from "./submitBanner";
-import { sendFeedback } from "../../services"
-import LoadingIcon from '../../assets/icons/loading-icon'
-import ScreenRecordBtn from "./ScreenrecordBtn";
-import UploadBtn from "./UploadBtn";
-import NewImage from "./NewImage";
+import { sendFeedback } from "../services"
+import LoadingIcon from '../assets/icons/loading-icon'
+import ScreenRecordBtn from "../components/media/ScreenrecordBtn";
+import NewImage from "../components/media/NewImage";
 
 const ReportIssue = () => {
   const { activeView, updateActiveView } = useNavigation()

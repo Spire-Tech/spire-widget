@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from 'preact/hooks'
 import styles from './app.css'
-import Home from "./components/home/home";
+import Home from "./views/home";
 import ToggleFeedbackBtn from "./components/toggleFeebackBtn/toggleFeedbackBtn";
 import Navigation from "./context/NavigationContext";
 import { getWidget } from './services'
