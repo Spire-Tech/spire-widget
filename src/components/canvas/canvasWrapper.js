@@ -6,31 +6,46 @@ import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 
 
-const CanvasWrapper = ({ addNewImage }) => {
+const CanvasWrapper = ({ addNewMedia }) => {
   // const [cropData, setCropData] = useState("#");
   const [cropper, setCropper] = useState();
   const { initialShot, setShowCanvas } = useReport()
 
-  const getCropData = () => {
+  const saveImage = () => {
     if (typeof cropper !== "undefined") {
       const frame = cropper.getCroppedCanvas().toDataURL();
-       addNewImage({ category: "image", file: frame })
+       addNewMedia({ category: "image", file: frame })
        setShowCanvas(false)
     }
   };
+
+  const saveVideo = () => {
+    addNewMedia({category: "video", file: initialShot.file, url: initialShot.url})
+    setShowCanvas(false)
+  }
+
+  const handleSave = () => {
+    if(initialShot.type === "video") {
+      saveVideo()
+     }else if (initialShot.type === "image") {
+      saveImage()
+     }
+  }
 
   return (
     <div class={styles.__canvas}>
       <div class={styles.__canvas_actions}>
 <button class={styles.__canvas_actions_btn} onClick={() => setShowCanvas(false)}>Cancel</button>
-<button class={styles.__canvas_actions_btn} onClick={getCropData}>Save</button>
+<button class={styles.__canvas_actions_btn} onClick={handleSave}>Save</button>
       </div>
       <div class={styles.__canvas_container}>
-      <Cropper
+      {
+        initialShot.type === 'image' ? (
+        <Cropper
           style={{ height: "auto", width: "100%" }}
           zoomTo={0.5}
           initialAspectRatio={1}
-          src={initialShot}
+          src={initialShot.file}
           viewMode={1}
           minCropBoxHeight={10}
           minCropBoxWidth={10}
@@ -43,6 +58,10 @@ const CanvasWrapper = ({ addNewImage }) => {
           }}
           guides={true}
         />
+        ) : (
+          <video class={styles.__canvas_container_video} src={initialShot.url} controls/>
+        )
+      }
       </div>
 
     </div>

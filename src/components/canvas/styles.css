@@ -10,7 +10,7 @@
   background: rgba(0,0,0,0.8) !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   align-items: center !important;
   padding-bottom: 1rem;
 }
@@ -23,7 +23,7 @@
 
 .__canvas_actions {
   width: 100% !important;
-  margin: 1% 0 !important;
+  margin: 1.5em 0 !important;
   display: flex !important;
   justify-content: flex-end !important;
   align-items: center !important;
@@ -44,4 +44,9 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+}
+
+.__canvas_container_video {
+  width: 100%;
+  height: 'auto';
 }

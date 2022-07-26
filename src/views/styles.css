@@ -236,3 +236,8 @@ height: 14px !important;
   height: 100% !important;
 }
 
+.__image video {
+  width: 100% !important;
+  height: 100% !important;
+}
+

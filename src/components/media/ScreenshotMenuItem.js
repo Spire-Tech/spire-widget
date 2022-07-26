@@ -37,7 +37,7 @@ const ScreenshotMenuItem = ({closeMenu}) => {
         context.fillRect(0, 0, w, h);
         context.drawImage(video, 0, 0, w, h);
         const frame = canvas.toDataURL('image/png')
-        setInitialShot(frame)
+        setInitialShot({type: 'image', file: frame, url: null})
         setShowCanvas(true)
         captureStream.getTracks().forEach(track => track.stop());
         // addNewImage({ category: "image", file: frame })

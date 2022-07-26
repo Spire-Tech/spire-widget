@@ -33,7 +33,7 @@ const ReportIssue = () => {
   const [media, setMedia] = useState([])
   const [mediaType, setMediaType] = useState(null)
   const [showCanvas, setShowCanvas] = useState(false)
-  const [initialShot, setInitialShot] = useState(null)
+  const [initialShot, setInitialShot] = useState({type: '', file: null, url: null})
 
 
 
@@ -153,7 +153,7 @@ const ReportIssue = () => {
                               item.category === "image" ? (
                                 <img src={item.url ? item.url : item.file} alt="image file" />
                               ) : (
-                                <img src="https://res.cloudinary.com/spire-tech/image/upload/v1656420275/icons/25481_glz2cs.jpg" alt="video file" />
+                                <video src={item.url} />
                               )
                             }
                           </div>
@@ -173,7 +173,7 @@ const ReportIssue = () => {
           </>
         )}
     </div>
-    {showCanvas && <CanvasWrapper addNewImage={addNewMedia} />}
+    {showCanvas && <CanvasWrapper addNewMedia={addNewMedia} />}
     </>
     </ReportContext.Provider>
   )

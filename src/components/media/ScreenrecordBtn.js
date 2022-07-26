@@ -1,10 +1,12 @@
 import { h, Fragment } from 'preact'
 import { useState, useRef } from 'preact/hooks'
 import VideoIcon from '../../assets/icons/video-icon'
+import { useReport } from '../../views/reportIssue'
 import styles from './styles.css'
 
 const ScreenRecordBtn = ({ addNewVideo }) => {
   const [start, setStart] = useState(false)
+  const { setShowCanvas, setInitialShot } = useReport()
   const mediaRecorder = useRef()
 
 
@@ -23,13 +25,33 @@ const ScreenRecordBtn = ({ addNewVideo }) => {
       const blob = new Blob(recordedChunks, {
         type: mimeType
       });
-      addNewVideo({ category: "video", file: blob })
+      const url = URL.createObjectURL(blob)
+      setInitialShot({type: 'video', file: blob, url: url })
+      setShowCanvas(true)
+      // addNewVideo({ category: "video", file: blob })
       stream.getTracks().forEach(track => track.stop())
       recordedChunks = [];
     };
     recorder.start(200); // For every 200ms the stream data will be stored in a separate chunk.
     return recorder;
   }
+
+  // const cameraW=1280;
+  // const cameraH=720;
+  // const cameraFR=25;
+
+  // const cameraOptions = {
+  //     audio:false,
+  //     video:{
+  //         width: { min: 100, ideal: cameraW, max: 1920 },
+  //         height: { min: 100, ideal: cameraH, max: 1080 },
+  //         frameRate: {ideal: cameraFR}
+  //     }
+  // };
+
+  // const video= document.getElementById("video1");           
+  // navigator.mediaDevices.getUserMedia(camera1Options).then(function(stream1){
+  //   video1.srcObject=stream1;})
 
   const startRecord = async () => {
     try {
