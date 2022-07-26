@@ -50,7 +50,7 @@ const FeatureRequest = () => {
           setMessage('')
           setTimeout(() => {
             updateActiveView('home')
-          }, 4000)
+          }, 3500)
         }
       } catch (e) {
         setLoading(false)

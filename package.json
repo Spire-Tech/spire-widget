@@ -24,6 +24,7 @@
     "@babel/plugin-transform-react-jsx": "^7.17.12",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.17.12",
+    "@lottiefiles/lottie-player": "^1.5.7",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
     "cross-env": "^7.0.3",
