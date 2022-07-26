@@ -75,6 +75,11 @@ const ReportIssue = () => {
             rating: 0
           })
           if (!result.error) {
+            media.forEach((item) => {
+              if(item.url) {
+                URL.revokeObjectURL(item.url)
+              }
+            })
             setSubmitted(true)
             setLoading(false)
             setEmail('')
