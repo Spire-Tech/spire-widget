@@ -18,6 +18,10 @@
   url("https://res.cloudinary.com/spire-tech/raw/upload/v1641654155/fonts/satoshi_font/Satoshi-Variable_ncsjrw.woff") format("woff");
 }
 
+body {
+  height: 100% !important;
+}
+
 .__feedjet * {
   margin: 0 !important;
   padding: 0 !important;

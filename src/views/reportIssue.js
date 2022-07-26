@@ -1,11 +1,11 @@
-import { h, Fragment } from "preact";
+import { h, Fragment, createContext } from "preact";
 import FormButton from "../components/formInput/FormButton"
 import FormInput from "../components/formInput/FormInput"
 import FormTextArea from "../components/formInput/FormTextarea"
 import styles from './styles.css'
 import BackIcon from "../assets/icons/back-icon";
 import { useNavigation } from "../context/NavigationContext";
-import { useState } from "preact/hooks"
+import { useState, useContext } from "preact/hooks"
 import useValidate from "../hooks/useValidate";
 import ScreenshotBtn from "../components/media/ScreenshotBtn";
 import CancelImgIcon from "../assets/icons/cancel-img-icon";
@@ -15,6 +15,9 @@ import { sendFeedback } from "../services"
 import LoadingIcon from '../assets/icons/loading-icon'
 import ScreenRecordBtn from "../components/media/ScreenrecordBtn";
 import NewImage from "../components/media/NewImage";
+import CanvasWrapper from "../components/canvas/canvasWrapper";
+
+const ReportContext = createContext({addNewMedia: null, showCanvas: false, setShowConvas: null, initialShot: null, setInitialShot: null, shotDimensions: null, setShotDimensions: null})
 
 const ReportIssue = () => {
   const { activeView, updateActiveView } = useNavigation()
@@ -29,6 +32,11 @@ const ReportIssue = () => {
   const messageError = useValidate(message, checkMessage, submitting, 'Enter a longer request')
   const [media, setMedia] = useState([])
   const [mediaType, setMediaType] = useState(null)
+  const [showCanvas, setShowCanvas] = useState(false)
+  const [initialShot, setInitialShot] = useState(null)
+  const [shotDimensions, setShotDimensions] = useState({w: '', h: ''})
+
+
 
   // const isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
   //   (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))
@@ -102,6 +110,8 @@ const ReportIssue = () => {
   }
 
   return (
+    <ReportContext.Provider value={{addNewMedia, showCanvas, setShowCanvas, initialShot, setInitialShot, shotDimensions, setShotDimensions }}>
+      <>
     <div class={styles.__container}>
       {
         submitted ? (
@@ -164,7 +174,12 @@ const ReportIssue = () => {
           </>
         )}
     </div>
+    {showCanvas && <CanvasWrapper addNewImage={addNewMedia} />}
+    </>
+    </ReportContext.Provider>
   )
 }
 
 export default ReportIssue;
+
+export const useReport = () => useContext(ReportContext)

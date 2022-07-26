@@ -15,11 +15,16 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    alias: {
+      react: 'preact/compat',
+      'react-dom': 'preact/compat'
+    }
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'style-loader',
@@ -39,6 +44,22 @@ module.exports = {
           'postcss-loader'
         ]
       },
+      {
+        test: /\.css$/i,
+        include: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            // allows import CSS as modules
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: !isProduction
+            }
+          },
+          'postcss-loader'
+        ]
+    },
       {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
