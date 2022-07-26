@@ -1,13 +1,12 @@
 import { h } from 'preact'
-import * as LottiePlayer from "@lottiefiles/lottie-player";
 import styles from './styles.css'
 
 const SubmitBanner = () => {
   return (
     <div class={styles.__container}>
       <div class={styles.__submitimg}>
-      <LottiePlayer src="https://assets8.lottiefiles.com/packages/lf20_hudl912y.json" background="transparent" speed="1"
-        style="width: 150px; height: 150px;" autoplay></LottiePlayer>
+      <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_hudl912y.json" background="transparent" speed="1"
+        style="width: 150px; height: 150px;" autoplay></lottie-player>
       </div>
       <div class={styles.__container_header}>
         <h3 class={styles.__title}>Submission received!</h3>

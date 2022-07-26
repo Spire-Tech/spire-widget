@@ -86,7 +86,7 @@ const ReportIssue = () => {
             setMessage('')
             setTimeout(() => {
               updateActiveView('home')
-            }, 3500)
+            }, 2000)
           }
 
         })
