@@ -17,7 +17,7 @@ import ScreenRecordBtn from "../components/media/ScreenrecordBtn";
 import NewImage from "../components/media/NewImage";
 import CanvasWrapper from "../components/canvas/canvasWrapper";
 
-const ReportContext = createContext({addNewMedia: null, showCanvas: false, setShowConvas: null, initialShot: null, setInitialShot: null, shotDimensions: null, setShotDimensions: null})
+const ReportContext = createContext({addNewMedia: null, showCanvas: false, setShowConvas: null, initialShot: null, setInitialShot: null})
 
 const ReportIssue = () => {
   const { activeView, updateActiveView } = useNavigation()
@@ -34,7 +34,6 @@ const ReportIssue = () => {
   const [mediaType, setMediaType] = useState(null)
   const [showCanvas, setShowCanvas] = useState(false)
   const [initialShot, setInitialShot] = useState(null)
-  const [shotDimensions, setShotDimensions] = useState({w: '', h: ''})
 
 
 
@@ -110,7 +109,7 @@ const ReportIssue = () => {
   }
 
   return (
-    <ReportContext.Provider value={{addNewMedia, showCanvas, setShowCanvas, initialShot, setInitialShot, shotDimensions, setShotDimensions }}>
+    <ReportContext.Provider value={{addNewMedia, showCanvas, setShowCanvas, initialShot, setInitialShot }}>
       <>
     <div class={styles.__container}>
       {

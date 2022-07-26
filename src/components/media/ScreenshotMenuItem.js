@@ -9,7 +9,7 @@ const ScreenshotMenuItem = ({closeMenu}) => {
   const canvas = document.createElement("canvas");
   var context = canvas.getContext('2d');
   const { triggerMinimize } = useNavigation()
-  const { setShotDimensions, setShowCanvas, setInitialShot } = useReport()
+  const { setShowCanvas, setInitialShot } = useReport()
 
 
   const handleCapture = async () => {
@@ -37,7 +37,6 @@ const ScreenshotMenuItem = ({closeMenu}) => {
         context.fillRect(0, 0, w, h);
         context.drawImage(video, 0, 0, w, h);
         const frame = canvas.toDataURL('image/png')
-        setShotDimensions({w: w, h: h})
         setInitialShot(frame)
         setShowCanvas(true)
         captureStream.getTracks().forEach(track => track.stop());

@@ -18,11 +18,12 @@
 .__canvas_container {
   width: 100% !important;
   max-width: 1140px !important;
+  margin: 0 auto;
 }
 
 .__canvas_actions {
   width: 100% !important;
-  margin: 1em 0 !important;
+  margin: 1% 0 !important;
   display: flex !important;
   justify-content: flex-end !important;
   align-items: center !important;
