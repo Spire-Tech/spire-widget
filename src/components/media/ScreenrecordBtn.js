@@ -1,12 +1,14 @@
 import { h, Fragment } from 'preact'
 import { useState, useRef } from 'preact/hooks'
 import VideoIcon from '../../assets/icons/video-icon'
+import { useNavigation } from '../../context/NavigationContext'
 import { useReport } from '../../views/reportIssue'
 import styles from './styles.css'
 
 const ScreenRecordBtn = ({ addNewVideo }) => {
   const [start, setStart] = useState(false)
   const { setShowCanvas, setInitialShot } = useReport()
+  const { triggerMinimize } = useNavigation()
   const mediaRecorder = useRef()
 
 
@@ -55,6 +57,7 @@ const ScreenRecordBtn = ({ addNewVideo }) => {
 
   const startRecord = async () => {
     try {
+      triggerMinimize(true)
       const stream = await navigator.mediaDevices.getDisplayMedia({
         video: { mediaSource: "screen" },
         audio: false
@@ -69,6 +72,7 @@ const ScreenRecordBtn = ({ addNewVideo }) => {
 
   const stopRecord = () => {
     mediaRecorder.current.stop()
+    triggerMinimize(false)
     setStart(false)
   }
 

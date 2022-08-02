@@ -40,10 +40,10 @@ const ScreenshotMenuItem = ({closeMenu}) => {
         setInitialShot({type: 'image', file: frame, url: null})
         setShowCanvas(true)
         captureStream.getTracks().forEach(track => track.stop());
+        triggerMinimize(false)
+        closeMenu()
         // addNewImage({ category: "image", file: frame })
       }, false);
-      closeMenu()
-      triggerMinimize(false)
 
     } catch (err) {
       triggerMinimize(false)
