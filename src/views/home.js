@@ -7,9 +7,10 @@ import { useNavigation } from '../context/NavigationContext'
 import RateExperience from './rateExperience'
 import ReportIssue from './reportIssue'
 import FeatureRequest from './featureRequest'
+import { useEffect } from 'preact/hooks'
 
-const Home = ({ positon, blocks, businessName, businessId, widgetId }) => {
-  const { activeView, minimize, triggerMinimize } = useNavigation()
+const Home = ({ blocks, businessName, businessId, widgetId, toggleWidget, showWidget }) => {
+  const { activeView, minimize, updateActiveView } = useNavigation()
 
   const returnView = () => {
     switch (activeView.title) {
@@ -26,15 +27,25 @@ const Home = ({ positon, blocks, businessName, businessId, widgetId }) => {
     }
   }
 
+  useEffect(() => {
+    if(activeView.title !== 'home') {
+      updateActiveView('home')
+    }
+  }, [showWidget])
+
   return (
     <>
-      <button onClick={() => triggerMinimize(true)} class={`${styles.__box_btn} ${minimize ? styles.__hide : ''}`} aria-label="close menu">
+      <button onClick={toggleWidget} class={`${styles.__box_btn} ${minimize ? styles.__hide : ''}`} aria-label="close menu">
         <CloseIcon />
       </button>
       <div role="menu" class={`${styles.__box} ${minimize ? styles.__hide : ''}`}>
-        <div class={styles.__box_title}>
-          <h5>{businessName}</h5>
-        </div>
+        {
+          activeView.title === 'home' && (
+            <div class={styles.__box_title}>
+              <h5>{businessName}</h5>
+            </div>
+          )
+        }
         {
           returnView()
         }

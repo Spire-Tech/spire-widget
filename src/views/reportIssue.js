@@ -20,7 +20,7 @@ import CanvasWrapper from "../components/canvas/canvasWrapper";
 const ReportContext = createContext({addNewMedia: null, showCanvas: false, setShowConvas: null, initialShot: null, setInitialShot: null})
 
 const ReportIssue = () => {
-  const { activeView, updateActiveView } = useNavigation()
+  const { activeView } = useNavigation()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
@@ -84,9 +84,6 @@ const ReportIssue = () => {
             setLoading(false)
             setEmail('')
             setMessage('')
-            setTimeout(() => {
-              updateActiveView('home')
-            }, 2000)
           }
 
         })
@@ -122,17 +119,13 @@ const ReportIssue = () => {
           <SubmitBanner />
         ) : (
           <>
-            <button onClick={() => updateActiveView('home')} class={styles.__backbtn}>
-              <BackIcon />
-              <span>Back</span>
-            </button>
             <div class={styles.__container_header}>
               <h3 class={styles.__title}>Report an issue</h3>
               <p class={styles.__desc}>Is something wrong? Let us know.</p>
             </div>
 
             <form onSubmit={handleReportIssue} class={styles.__form}>
-              <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
+              <FormInput placeholder="Your email address" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
               <FormTextArea label="What’s the issue?" placeholder="Tell us more about the issue you’re having. You can take a screenshot." onInput={(e) => setMessage(e.target.value)} error={messageError} required />
               {
                 !media.length && (

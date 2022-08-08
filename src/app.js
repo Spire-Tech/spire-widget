@@ -14,6 +14,7 @@ const App = ({ token }) => {
   const [businessId, setBusinessId] = useState('')
   const [widgetId, setWidgetId] = useState('')
   const [position, setPosition] = useState('')
+  const [showWidget, setShowWidget] = useState(false)
 
   const fetchWidget = async () => {
     try {
@@ -30,7 +31,10 @@ const App = ({ token }) => {
       setLoading(false)
       console.log(e)
     }
+  }
 
+  const toggleWidget = () => {
+    setShowWidget(state => !state)
   }
 
   useEffect(() => {
@@ -41,10 +45,15 @@ const App = ({ token }) => {
     <Navigation>
       {
         !loading && (
-        <div class={`${styles.__feedjet} ${styles[handlePostioning(position)]}`}>
-          <Home blocks={blocks} businessName={businessName} businessId={businessId} widgetId={widgetId} position={position} />
-          <ToggleFeedbackBtn position={position} />
-      </div>
+          <div class={`${styles.__feedjet} ${styles[handlePostioning(position)]}`}>
+            {
+              showWidget && (
+                <Home blocks={blocks} businessName={businessName} businessId={businessId} widgetId={widgetId} toggleWidget={toggleWidget} showWidget={showWidget} />
+              )
+            }
+
+            <ToggleFeedbackBtn toggleWidget={toggleWidget} showWidget={showWidget} position={position} />
+          </div>
         )
       }
     </Navigation>

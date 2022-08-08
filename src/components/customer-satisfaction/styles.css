@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   row-gap: 10px;
+  cursor: pointer;
 }
 
 .__ratings_label img {

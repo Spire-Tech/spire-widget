@@ -37,17 +37,17 @@
 
 .__input:focus, 
 .__input:active {
-  border: 0.869986px solid #F5A623 !important;
+  border: 1.6px solid #73055B !important;
   outline: none !important;
 }
 
 .__textarea {
-  height: 100px !important;
+  height: 85px !important;
 }
 
 .__textarea:focus, 
 .__texarea:active {
-  border: 0.869986px solid #F5A623 !important;
+  border: 1.6px solid #73055B !important;
   outline: none !important;
 }
 
@@ -66,14 +66,15 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  background: #F5A623 !important;
+  background: var(--brand-pink) !important;
   padding: 14px 16px !important;
   height: 48px !important;
   font-weight: 700 !important;
   font-size: 18px !important;
   line-height: 28px !important;
-  color: var(--brand-text-dark) !important;      
+  color: #fff !important;      
   cursor: pointer !important;
+  margin-top: 5px !important;
 }
 
 .__submitbtn svg {

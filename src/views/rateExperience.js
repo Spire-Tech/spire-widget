@@ -3,7 +3,6 @@ import FormButton from "../components/formInput/FormButton"
 import FormInput from "../components/formInput/FormInput"
 import FormTextArea from "../components/formInput/FormTextarea"
 import styles from './styles.css'
-import BackIcon from '../assets/icons/back-icon'
 import { useNavigation } from "../context/NavigationContext"
 import { useState } from "preact/hooks"
 import useValidate from "../hooks/useValidate"
@@ -14,7 +13,7 @@ import LoadingIcon from '../assets/icons/loading-icon'
 
 
 const RateExperience = () => {
-  const { activeView, updateActiveView } = useNavigation()
+  const { activeView } = useNavigation()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
@@ -48,9 +47,6 @@ const RateExperience = () => {
           setLoading(false)
           setEmail('')
           setMessage('')
-          setTimeout(() => {
-            updateActiveView('home')
-          }, 2000)
         }
       } catch (e) {
         setLoading(false)
@@ -66,10 +62,6 @@ const RateExperience = () => {
           <SubmitBanner />
         ) : (
           <>
-            <button onClick={() => updateActiveView('home')} class={styles.__backbtn}>
-              <BackIcon />
-              <span>Back</span>
-            </button>
             <div class={styles.__container_header}>
               <h3 class={styles.__title}>How was your experience</h3>
               <p class={styles.__desc}>Let us know how we can improve.</p>
@@ -79,7 +71,7 @@ const RateExperience = () => {
               {
                 ratings ? (
                   <>
-                    <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
+                    <FormInput type="email" placeholder="Your email address" onInput={(e) => setEmail(e.target.value)} error={emailError} required />
                     <FormTextArea label="Leave us a comment" placeholder="Let us know how we can improve" onInput={(e) => setMessage(e.target.value)} />
                     <FormButton type="submit">{loading ? <LoadingIcon /> : 'Submit'}</FormButton>
                   </>

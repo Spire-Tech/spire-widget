@@ -5,7 +5,7 @@ const NavigationContext = createContext({ activeView: { title: 'home', id: null,
 
 const Navigation = ({ children }) => {
   const [activeView, setActiveView] = useState({ title: 'home', id: null, businessId: null, widgetId: null })
-  const [minimize, triggerMinimize] = useState(true)
+  const [minimize, triggerMinimize] = useState(false)
 
   const updateActiveView = (title, id, businessId, widgetId) => {
     setActiveView({ title, id, businessId, widgetId })

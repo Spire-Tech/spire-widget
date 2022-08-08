@@ -3,7 +3,6 @@ import FormButton from "../components/formInput/FormButton"
 import FormInput from "../components/formInput/FormInput"
 import FormTextArea from "../components/formInput/FormTextarea"
 import styles from './styles.css'
-import BackIcon from '../assets/icons/back-icon'
 import { useNavigation } from "../context/NavigationContext"
 import { useState } from "preact/hooks"
 import useValidate from "../hooks/useValidate"
@@ -13,7 +12,7 @@ import LoadingIcon from '../assets/icons/loading-icon'
 
 
 const FeatureRequest = () => {
-  const { activeView, updateActiveView } = useNavigation()
+  const { activeView } = useNavigation()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
@@ -48,9 +47,6 @@ const FeatureRequest = () => {
           setLoading(false)
           setEmail('')
           setMessage('')
-          setTimeout(() => {
-            updateActiveView('home')
-          }, 2000)
         }
       } catch (e) {
         setLoading(false)
@@ -66,18 +62,14 @@ const FeatureRequest = () => {
           <SubmitBanner />
         ) : (
           <>
-            <button onClick={() => updateActiveView('home')} class={styles.__backbtn}>
-              <BackIcon />
-              <span>Back</span>
-            </button>
             <div class={styles.__container_header}>
               <h3 class={styles.__title}>Feature Request</h3>
               <p class={styles.__desc}>Got some ideas? Tell us about it.</p>
             </div>
 
             <form onSubmit={handleFeatureRequest} class={styles.__form}>
-              <FormInput label="What's your email?" type="email" placeholder="example@gmail.com" value={email} onInput={(e) => setEmail(e.target.value)} error={emailError} required />
-              <FormTextArea label="Tell us about this feature" placeholder="What are you looking to see and what’s the problem it solves." value={message} onInput={(e) => setMessage(e.target.value)} error={messageError} required />
+              <FormInput type="email" placeholder="Your email address" value={email} onInput={(e) => setEmail(e.target.value)} error={emailError} required />
+              <FormTextArea placeholder="What are you looking to see and what’s the problem it solves." value={message} onInput={(e) => setMessage(e.target.value)} error={messageError} required />
               <FormButton type="submit">{loading ? <LoadingIcon /> : 'Submit'}</FormButton>
             </form>
           </>
